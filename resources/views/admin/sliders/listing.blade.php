@@ -8,14 +8,14 @@
     <a class="breadcrumb-item active">Sliders</a>
 @stop
 
-@section('page-action')
+{{-- @section('page-action')
     <a href="javascript:void(0);" class="btn btn-sm btn-add btn-primary ">
         <i class="fa fa-plus-square mr-1"></i>Add Slider
     </a>
-@stop
+@stop --}}
 
 @section('content')
-    <div class="shadow-sm p-2 mb-2 bg-white">
+    {{-- <div class="shadow-sm p-2 mb-2 bg-white">
         <div class="col-md-3 p-0">
             @include('template.partials.form.select', [
                 'label' => 'Status',
@@ -30,7 +30,7 @@
                 'value' => 'all',
             ])
         </div>
-    </div>
+    </div> --}}
     <div class="table-responsive">
         @include('template.partials.table', [
             'id' => 'data-table',
@@ -42,7 +42,6 @@
                 'Subtitle Arabic',
                 'Image Arabic',
                 'Image English',
-                'Status',
                 'Actions',
             ],
         ])
@@ -121,10 +120,6 @@
                         name: 'image_english'
                     },
                     {
-                        data: 'status',
-                        name: 'status'
-                    },
-                    {
                         data: 'actions',
                         name: 'actions',
                         orderable: false,
@@ -134,9 +129,9 @@
             });
         }
 
-        $(".btn-add").click(function() {
-            open_modal("{{ route('admin.sliders.modal') }}");
-        });
+        // $(".btn-add").click(function() {
+        //     open_modal("{{ route('admin.sliders.modal') }}");
+        // });
 
         $("#data-table").on('click', '.btn-edit', function() {
             let id = $(this).data('id');

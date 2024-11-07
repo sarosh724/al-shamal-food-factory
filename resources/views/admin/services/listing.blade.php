@@ -61,10 +61,10 @@
                 serverSide: true,
                 destroy: true,
                 aaSorting: [],
-                "lengthChange": false,
+                "lengthChange": true,
                 searching: true,
                 info: false,
-                ordering: false,
+                ordering: true,
                 columnsDefs: [{
                     orderable: true
                 }],

@@ -1,16 +1,16 @@
 @extends('template.index')
 
 @section('title')
-    Customer Inquiries
+    Appointments
 @stop
 
 @section('breadcrumb')
-    <a class="breadcrumb-item active">Customer Inquiries</a>
+    <a class="breadcrumb-item active">Appointments</a>
 @stop
 
 @section('content')
     <div class="table-responsive">
-        @include('template.partials.table',  ['id' => 'data-table', 'columns' => ['Sr.', 'Name', 'Email', 'Phone Number', 'Message']])
+        @include('template.partials.table',  ['id' => 'data-table', 'columns' => ['Sr.', 'First Name', 'Last Name', 'Email', 'Reason', 'First Choice Date', 'First Choice Time', 'Second Choice Date', 'Second Choice Time']])
     </div>
 @stop
 
@@ -47,20 +47,36 @@
                          name: 'DT_RowIndex'
                     },
                     {
-                        data: 'name',
-                        name: 'name',
+                        data: 'first_name',
+                        name: 'first_name',
+                    },
+                    {
+                        data: 'last_name',
+                        name: 'last_name',
                     },
                     {
                         data: 'email',
                         name: 'email',
                     },
                     {
-                        data: 'phone_number',
-                        name: 'phone_number',
+                        data: 'reason',
+                        name: 'reason',
                     },
                     {
-                        data: 'message',
-                        name: 'message',
+                        data: 'first_choice_date',
+                        name: 'first_choice_date',
+                    },
+                    {
+                        data: 'first_choice_time',
+                        name: 'first_choice_time',
+                    },
+                    {
+                        data: 'second_choice_date',
+                        name: 'second_choice_date',
+                    },
+                    {
+                        data: 'second_choice_time',
+                        name: 'second_choice_time',
                     }
                 ]
             });

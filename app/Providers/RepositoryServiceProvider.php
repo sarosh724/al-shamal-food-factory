@@ -44,6 +44,14 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Interfaces\PageInterface',
             'App\Repositories\PageRepository'
         );
+        $this->app->bind(
+            'App\Interfaces\OurTeamInterface',
+            'App\Repositories\OurTeamRepository'
+        );
+        $this->app->bind(
+            'App\Interfaces\AppointmentInterface',
+            'App\Repositories\AppointmentRepository'
+        );
 
     }
 }

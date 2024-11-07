@@ -47,31 +47,31 @@ class SliderController extends Controller
                     return '<a href="' . @$data->image_english . '" target="_blank" title="View Image" data-fancybox="gallery" data-id="' . @$data->id . '"
                     class="btn btn-sm" ><i class="fa fa-image color-gray"></i></a>';
                 })
-                ->addColumn('status', function ($data) {
-                    return badge($data->status);
-                })
+                // ->addColumn('status', function ($data) {
+                //     return badge($data->status);
+                // })
                 ->addColumn('actions', function ($data) {
                     $actions = '';
 
-                    if ($data->status <> 'deleted') {
+                    // if ($data->status <> 'deleted') {
 
                         $actions .= '<a href="javascript:void(0);" title="Edit" data-id="' . @$data->id . '"
                     class="btn btn-sm btn-edit me-1" ><i class="fa fa-pencil color-gray"></i></a>';
 
-                        $statusIcon = $data->status == 'active' ? 'fa-lock' : 'fa-unlock';
-                        $statusTitleText = $data->status == 'active' ? 'Deactivate' : 'Activate';
+                        // $statusIcon = $data->status == 'active' ? 'fa-lock' : 'fa-unlock';
+                        // $statusTitleText = $data->status == 'active' ? 'Deactivate' : 'Activate';
 
-                        $actions .= '<a href="javascript:void(0);" title="' . $statusTitleText . '" data-id="' . @$data->id . '" data-status="' . @$data->status . '"
-                    class="btn btn-sm btn-status me-1" ><i class="fa ' . $statusIcon . ' color-gray"></i></a>';
+                    //     $actions .= '<a href="javascript:void(0);" title="' . $statusTitleText . '" data-id="' . @$data->id . '" data-status="' . @$data->status . '"
+                    // class="btn btn-sm btn-status me-1" ><i class="fa ' . $statusIcon . ' color-gray"></i></a>';
 
 
-                        $actions .= '<a href="javascript:void(0);" title="Delete" data-id="' . @$data->id . '"
-                    class="btn btn-sm btn-delete" ><i class="fa fa-trash color-gray"></i></a>';
-                    }
+                    //     $actions .= '<a href="javascript:void(0);" title="Delete" data-id="' . @$data->id . '"
+                    // class="btn btn-sm btn-delete" ><i class="fa fa-trash color-gray"></i></a>';
+                    // }
 
                     return $actions;
                 })
-                ->rawColumns(['actions', 'status', 'image_arabic', 'image_english'])
+                ->rawColumns(['actions', 'image_arabic', 'image_english'])
                 ->make(true);
         }
 

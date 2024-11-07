@@ -23,15 +23,13 @@ use Illuminate\Support\Facades\Artisan;
 // });
 
 Route::namespace('App\Http\Controllers\Backend')->prefix('admin')->group(function () {
-
-    Route::get('/', 'DashboardController@index');
-
     // Authentication routes
     Route::match(['get', 'post'], '/login', 'AuthController@login')->name('login');
     Route::get('logout', 'AuthController@logout')->name('logout');
 
     // Apply 'auth' middleware to all routes in this group
     Route::middleware(['auth'])->group(function () {
+        Route::get('/', 'DashboardController@index');
         // profile
         Route::prefix('profile')
             ->name('admin.')
@@ -107,29 +105,52 @@ Route::namespace('App\Http\Controllers\Backend')->prefix('admin')->group(functio
 
         // Testimonials
         Route::prefix('testimonials')
-        ->name('admin.testimonials.')
-        ->group(function () {
-            Route::get('/', 'TestimonialController@index')->name('list');
-            Route::get('/modal/{id?}', 'TestimonialController@modal')->name('modal');
-            Route::post('/store', 'TestimonialController@store')->name('store');
-            Route::delete('{id}', 'TestimonialController@destroy')->name('delete');
-        });
+            ->name('admin.testimonials.')
+            ->group(function () {
+                Route::get('/', 'TestimonialController@index')->name('list');
+                Route::get('/modal/{id?}', 'TestimonialController@modal')->name('modal');
+                Route::post('/store', 'TestimonialController@store')->name('store');
+                Route::delete('{id}', 'TestimonialController@destroy')->name('delete');
+            });
 
         // Testimonials
         Route::prefix('pages')
-        ->name('admin.pages.')
-        ->group(function () {
-            Route::get('/',
-                'PageController@index'
-            )->name('list');
-            Route::get('/modal/{id?}', 'PageController@modal')->name('modal');
-            Route::post('/store', 'PageController@store')->name('store');
-            Route::delete('{id}', 'PageController@destroy')->name('delete');
-            Route::post('/update-status', 'PageController@updateStatus')->name('update-status');
-        });
+            ->name('admin.pages.')
+            ->group(function () {
+                Route::get(
+                    '/',
+                    'PageController@index'
+                )->name('list');
+                Route::get('/modal/{id?}', 'PageController@modal')->name('modal');
+                Route::post('/store', 'PageController@store')->name('store');
+                Route::delete('{id}', 'PageController@destroy')->name('delete');
+                Route::post('/update-status', 'PageController@updateStatus')->name('update-status');
+            });
+
+        // Our Team
+        Route::prefix('our-team')
+            ->name('admin.our-team.')
+            ->group(function () {
+                Route::get('/', 'OurTeamController@index')->name('list');
+                Route::get('/modal/{id?}', 'OurTeamController@modal')->name('modal');
+                Route::post('/store', 'OurTeamController@store')->name('store');
+                Route::delete('{id}', 'OurTeamController@destroy')->name('delete');
+                Route::post('/update-status', 'OurTeamController@updateStatus')->name('update-status');
+            });
+
+        // Appointment
+        Route::prefix('appointment')
+            ->name('admin.appointment.')
+            ->group(function () {
+                Route::get('/', 'AppointmentController@index')->name('list');
+                Route::delete('{id}', 'AppointmentController@destroy')->name('delete');
+                Route::post('/update-status', 'AppointmentController@updateStatus')->name('update-status');
+            });
     });
 });
 
+
+# FRONT SITE ROUTES
 Route::namespace('App\Http\Controllers\Frontend')->group(function () {
     Route::get('/', 'SiteController@index')->name('index');
     Route::get('about', 'SiteController@about')->name('about');

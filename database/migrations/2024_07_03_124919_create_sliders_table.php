@@ -15,11 +15,11 @@ return new class extends Migration
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
             $table->text('title_english');
-            $table->text('title_arabic');
-            $table->text('subtitle_english');
-            $table->text('subtitle_arabic');
-            $table->text('image_arabic');
-            $table->text('image_english');
+            $table->text('title_arabic')->nullable();
+            $table->text('subtitle_english')->nullable();
+            $table->text('subtitle_arabic')->nullable();
+            $table->text('image_arabic')->nullable();
+            $table->text('image_english')->nullable();
             $table->text('url')->nullable();
             $table->unsignedBigInteger('service_id')->nullable();
             $table->unsignedBigInteger('product_id')->nullable();

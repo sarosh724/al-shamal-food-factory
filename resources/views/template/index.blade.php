@@ -90,7 +90,7 @@
                         <!--================================-->
                         <!-- Notifications Dropdown Start -->
                         <!--================================-->
-                        <li class="list-inline-item dropdown hidden-xs">
+                        {{-- <li class="list-inline-item dropdown hidden-xs">
                             <a class="notification-icon" href="" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-bell tx-16"></i>
@@ -197,7 +197,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
+                        </li> --}}
                         <!--/ Notifications Dropdown End -->
                         <!--================================-->
                         <!-- Profile Dropdown Start -->

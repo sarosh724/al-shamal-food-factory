@@ -22,11 +22,17 @@
     'url' => route('admin.products.list'),
 ])
 
-{{-- @include('template.partials.menu-item', [
+@include('template.partials.menu-item', [
     'label' => 'Customer Inquires',
     'icon' => 'book-open',
     'url' => route('admin.customer-inquiries.list'),
-]) --}}
+])
+
+@include('template.partials.menu-item', [
+    'label' => 'Appointment',
+    'icon' => 'file-text',
+    'url' => route('admin.appointment.list'),
+])
 
 @include('template.partials.menu-item', [
     'label' => 'Pages',
@@ -34,11 +40,17 @@
     'url' => route('admin.pages.list'),
 ])
 
-{{-- @include('template.partials.menu-item', [
+@include('template.partials.menu-item', [
+    'label' => 'Our Team',
+    'icon' => 'users',
+    'url' => route('admin.our-team.list'),
+])
+
+@include('template.partials.menu-item', [
     'label' => 'Testimonials',
     'icon' => 'award',
     'url' => route('admin.testimonials.list'),
-]) --}}
+])
 
 @include('template.partials.menu-item', [
     'label' => 'Settings',

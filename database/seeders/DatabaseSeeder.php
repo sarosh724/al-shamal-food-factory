@@ -25,5 +25,9 @@ class DatabaseSeeder extends Seeder
 
         $pageSeeder = new PageSeeder();
         $pageSeeder->run();
+
+        $sliderSeeder = new SliderSeeder();
+        $sliderSeeder->run();
+
     }
 }
