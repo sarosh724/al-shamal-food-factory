@@ -13,17 +13,17 @@ use Yajra\DataTables\DataTables;
 class AppointmentController extends Controller
 {
     use ResponseTrait;
-    protected AppointmentInterface $customerInquiryInterface;
+    protected AppointmentInterface $appointmentInterface;
 
-    public function __construct(AppointmentInterface $customerInquiryInterface)
+    public function __construct(AppointmentInterface $appointmentInterface)
     {
-        $this->customerInquiryInterface = $customerInquiryInterface;
+        $this->appointmentInterface = $appointmentInterface;
     }
 
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = $this->customerInquiryInterface->list();
+            $data = $this->appointmentInterface->list();
 
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -35,6 +35,9 @@ class AppointmentController extends Controller
                 })
                 ->addColumn('email', function ($data) {
                     return @$data->email;
+                })
+                ->addColumn('phone', function ($data) {
+                    return @$data->phone;
                 })
                 ->addColumn('reason', function ($data) {
                     return @$data->reason;
@@ -71,20 +74,20 @@ class AppointmentController extends Controller
 
     // public function store(AppointmentRequest $request, $id = null)
     // {
-    //     $result = $this->customerInquiryInterface->store($request, $id);
+    //     $result = $this->appointmentInterface->store($request, $id);
 
     //     return $this->jsonResponse($result["type"], $result["message"]);
     // }
 
     public function destroy($id)
     {
-        $customerInquiry = $this->customerInquiryInterface->list($id)->first();
+        $appointment = $this->appointmentInterface->list($id)->first();
 
-        if (!$customerInquiry) {
+        if (!$appointment) {
             return $this->jsonResponse("error", "Record not found");
         }
 
-        $result = $this->customerInquiryInterface->destroy($id);
+        $result = $this->appointmentInterface->destroy($id);
 
         return $this->jsonResponse($result["type"], $result["message"]);
     }

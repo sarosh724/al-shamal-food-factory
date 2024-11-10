@@ -224,7 +224,7 @@ function badge($status)
 
 function fetchServices()
 {
-    return Service::selectRaw('id, title_english, title_arabic, slug')->where('status', 'active')->get();
+    return Service::selectRaw('id, CONCAT(services.title_english,"-",services.title_arabic) as concatenation, title_english, title_arabic, slug')->where('status', 'active')->get();
 }
 
 function fetchProducts()

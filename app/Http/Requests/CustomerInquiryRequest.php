@@ -24,7 +24,7 @@ class CustomerInquiryRequest extends FormRequest
         return [
             'name' => 'required | max:255',
             'email' => 'email | required | max:255',
-            'phone_number' => 'required | max:255',
+            'phone' => 'required | max:15 | min:10',
             'message' => 'required'
         ];
     }

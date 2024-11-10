@@ -18,3 +18,26 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-track {
     background-color: #f1f1f1;
 }
+
+.custom-pagination .page-link {
+    color: #ff6600;
+    /* Change this to your desired color */
+    border-color: #ff6600;
+    /* Optional: change border color */
+}
+
+.custom-pagination .page-link:hover {
+    color: #ffffff;
+    /* Change color on hover */
+    background-color: #ff6600;
+    /* Background color on hover */
+}
+
+.custom-pagination .page-item.active .page-link {
+    background-color: #ff6600;
+    /* Active page background */
+    border-color: #ff6600;
+    /* Active page border color */
+    color: #ffffff;
+    /* Active page text color */
+}

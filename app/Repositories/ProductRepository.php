@@ -16,7 +16,7 @@ class ProductRepository implements ProductInterface
     use ImageTrait;
     public function list($request, $id = null)
     {
-        $data = Product::whereRelation('service', 'status', '=', 1);
+        $data = Product::with('images')->whereRelation('service', 'status', '=', 'active');
 
         if ($request->filled('status') && $request->status <> 'all')   $data->where("products.status", $request->status);
 

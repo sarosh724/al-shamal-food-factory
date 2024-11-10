@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AppointmentRequest;
 use App\Http\Requests\CustomerInquiryRequest;
 use App\Interfaces\CustomerInquiryInterface;
 use App\Interfaces\PageInterface;
@@ -14,6 +15,7 @@ use App\Interfaces\OurTeamInterface;
 use Illuminate\Http\Request;
 use App\Traits\ResponseTrait;
 use App\Interfaces\BreadCrumbInterface;
+use App\Interfaces\AppointmentInterface;
 
 class SiteController extends Controller
 {
@@ -27,17 +29,19 @@ class SiteController extends Controller
     protected ProductInterface $productInterface;
     protected OurTeamInterface $ourTeamInterface;
     protected BreadCrumbInterface $breadCrumbInterface;
+    protected AppointmentInterface $appointmentInterface;
 
-    public function __construct(SliderInterface $sliderInterface, ServiceInterface $serviceInterface, TestimonialInterface $testimonialInterface, CustomerInquiryInterface $customerInquiryInterface, PageInterface $pageInterface, ProductInterface $productInterface, OurTeamInterface $ourTeamInterface, BreadCrumbInterface $breadCrumbInterface)
+    public function __construct(SliderInterface $sliderInterface, ServiceInterface $serviceInterface, TestimonialInterface $testimonialInterface, CustomerInquiryInterface $customerInquiryInterface, PageInterface $pageInterface, ProductInterface $productInterface, OurTeamInterface $ourTeamInterface, BreadCrumbInterface $breadCrumbInterface, AppointmentInterface $appointmentInterface)
     {
         $this->sliderInterface = $sliderInterface;
         $this->serviceInterface = $serviceInterface;
         $this->testimonialInterface = $testimonialInterface;
-        $this->customerInquiryInterface = $customerInquiryInterface;
+        $this->appointmentInterface = $appointmentInterface;
         $this->pageInterface = $pageInterface;
         $this->productInterface = $productInterface;
         $this->ourTeamInterface = $ourTeamInterface;
         $this->breadCrumbInterface = $breadCrumbInterface;
+        $this->customerInquiryInterface = $customerInquiryInterface;
     }
 
     public function index(Request $request)
@@ -91,17 +95,31 @@ class SiteController extends Controller
         return view('front.services-details', compact('service', 'appointment'));
     }
 
-    public function serviceProducts(Request $request, $id)
+    public function products(Request $request)
     {
-        $service = $this->serviceInterface->list($request->merge(['status' => 1]), $id)->first();
-        $products = $this->productInterface->productsByServiceId($id)->get();
+        $serviceId = $request->service;
+        $productBreadcrumb = $this->breadCrumbInterface->list(null, 'product')->first();
+        $products = $this->productInterface->list($request->merge(['status' => 'active']))->paginate(8);
+        $testimonial = $this->pageInterface->list($request->merge(['status' => 'active']), null, 'testimonial')->first();
+        $testimonials = $this->testimonialInterface->list()->get();
+        $appointment = $this->pageInterface->list($request->merge(['status' => 'active']), null, 'appointment')->first();
 
-        return view('front.products', compact('products', 'service'));
+        return view('front.products', compact('products', 'productBreadcrumb', 'serviceId', 'testimonial', 'testimonials', 'appointment'));
     }
 
-    public function contactUs()
+    public function productDetail(Request $request, $id)
     {
-        return view('front.contact');
+        $product = $this->productInterface->list($request->merge(['status' => 'active']), $id)->first();
+
+        return view('front.product-quick-view', compact('product'));
+    }
+
+    public function contactUs(Request $request)
+    {
+        $contactBreadcrumb = $this->breadCrumbInterface->list(null, 'contact')->first();
+        $contact = $this->pageInterface->list($request->merge(['status' => 'active']), null, 'contact')->first();
+
+        return view('front.contact', compact('contactBreadcrumb', 'contact'));
     }
 
     public function storeCustomerInquiry(CustomerInquiryRequest $customerInquiryRequest)
@@ -111,4 +129,18 @@ class SiteController extends Controller
         return $this->jsonResponse($result["type"], $result["message"]);
     }
 
+    public function appointment(Request $request)
+    {
+        $appointmentBreadcrumb = $this->breadCrumbInterface->list(null, 'appointment')->first();
+        $appointment = $this->pageInterface->list($request->merge(['status' => 'active']), null, 'appointment')->first();
+
+        return view('front.appointment', compact('appointmentBreadcrumb', 'appointment'));
+    }
+
+    public function storeAppointment(AppointmentRequest $appointmentRequest)
+    {
+        $result = $this->appointmentInterface->store($appointmentRequest);
+
+        return $this->jsonResponse($result["type"], $result["message"]);
+    }
 }

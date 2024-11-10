@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
+            $table->string('phone');
             $table->text('reason');
             $table->date('first_choice_date');
             $table->time('first_choice_time');

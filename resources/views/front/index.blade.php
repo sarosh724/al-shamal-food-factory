@@ -154,7 +154,7 @@
             data-appear-animation="fadeInUpShorter" data-appear-animation-delay="750">
             @foreach ($services as $service)
                 <div class="col-sm-6 col-lg-3 text-center mb-4 mb-lg-0">
-                    <a href="services-details.php" class="text-decoration-none">
+                    <a href="{{route('service-details', ['slug' => $service->slug])}}" class="text-decoration-none">
                         <div
                             class="custom-thumb-info-style-1 thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-lighten">
                             <div class="thumb-info-wrapper">
@@ -245,7 +245,7 @@
                                         class="text-color-light text-decoration-none">{{ getSetting('contact-1') }}</a></strong>
                             </div>
                         </div>
-                        <a href="appointment.php"
+                        <a href="{{route('appointment')}}"
                             class="btn btn-light btn-outline custom-btn-border-radius border-color-light font-weight-bold text-color-light text-color-hover-dark bg-color-hover-light btn-px-5 btn-py-3">MAKE
                             AN APPOINTMENT</a>
                     </div>

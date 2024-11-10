@@ -10,7 +10,7 @@
 
 @section('content')
     <div class="table-responsive">
-        @include('template.partials.table',  ['id' => 'data-table', 'columns' => ['Sr.', 'First Name', 'Last Name', 'Email', 'Reason', 'First Choice Date', 'First Choice Time', 'Second Choice Date', 'Second Choice Time']])
+        @include('template.partials.table',  ['id' => 'data-table', 'columns' => ['Sr.', 'First Name', 'Last Name', 'Email', 'Phone', 'Reason', 'First Choice Date', 'First Choice Time', 'Second Choice Date', 'Second Choice Time']])
     </div>
 @stop
 
@@ -31,12 +31,12 @@
                     orderable: true
                 }],
                 ajax: {
-                    url: "{{route('admin.customer-inquiries.list')}}",
+                    url: "{{route('admin.appointment.list')}}",
                     error: function(xhr, error, thrown) {
                         if (xhr.status === 401) {
                             toast("The session has been expired", "error");
                             setTimeout(function () {
-                                window.location.href = "/";
+                                window.location.href = "{{route('login')}}";
                             }, 3000);
                         }
                     }
@@ -57,6 +57,10 @@
                     {
                         data: 'email',
                         name: 'email',
+                    },
+                    {
+                        data: 'phone',
+                        name: 'phone',
                     },
                     {
                         data: 'reason',

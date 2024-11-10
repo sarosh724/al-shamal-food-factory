@@ -165,7 +165,10 @@ Route::namespace('App\Http\Controllers\Frontend')->group(function () {
     Route::get('about', 'SiteController@about')->name('about');
     Route::get('services', 'SiteController@services')->name('services');
     Route::get('service-details/{slug}', 'SiteController@serviceDetails')->name('service-details');
-    Route::get('service-products/{id}', 'SiteController@serviceProducts')->name('service-products');
+    Route::get('products/{service?}', 'SiteController@products')->name('products');
+    Route::get('product-detail/{id}', 'SiteController@productDetail')->name('product-detail');
     Route::get('contact-us', 'SiteController@contactUs')->name('contact-us');
     Route::post('store-customer-inquiry', 'SiteController@storeCustomerInquiry')->name('store-customer-inquiry');
+    Route::get('appointment', 'SiteController@appointment')->name('appointment');
+    Route::post('store-appointment', 'SiteController@storeAppointment')->name('store-appointment');
 });

@@ -52,7 +52,7 @@
                                 <strong class="text-6"><a href="tel:{{getSetting('contact-1')}}" class="text-color-light text-decoration-none">{{getSetting('contact-1')}}</a></strong>
                             </div>
                         </div>
-                        <a href="appointment.php" class="btn btn-light btn-outline custom-btn-border-radius font-weight-bold text-color-light text-color-hover-dark bg-color-hover-light btn-px-5 btn-py-3">MAKE AN APPOINTMENT</a>
+                        <a href="{{route('appointment')}}" class="btn btn-light btn-outline custom-btn-border-radius font-weight-bold text-color-light text-color-hover-dark bg-color-hover-light btn-px-5 btn-py-3">MAKE AN APPOINTMENT</a>
                     </div>
                 </div>
             </div>

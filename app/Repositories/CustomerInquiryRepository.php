@@ -29,7 +29,7 @@ class CustomerInquiryRepository implements CustomerInquiryInterface
             $customerInquiry = new CustomerInquiry();
             $customerInquiry->name = $request->name;
             $customerInquiry->email = $request->email;
-            $customerInquiry->phone_number = $request->phone_number;
+            $customerInquiry->phone_number = $request->phone;
             $customerInquiry->message = $request->message;
             $customerInquiry->save();
             DB::commit();

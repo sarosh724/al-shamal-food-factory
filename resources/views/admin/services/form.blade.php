@@ -63,7 +63,7 @@
                 'value' => @$service->seo_keywords,
             ])
         </div>
-        
+
         <div class="col-lg-12">
             @include('template.partials.form.input', [
                 'label' => 'Seo Description',
@@ -129,7 +129,7 @@
                     if (xhr.status === 401) {
                         toast("The session has been expired", "error");
                         setTimeout(function() {
-                            window.location.href = "/";
+                            window.location.href = "{{route('login')}}";
                         }, 3000);
                     } else {
                         toast('Server error loading dialog', 'error');

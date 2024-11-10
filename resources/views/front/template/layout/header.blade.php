@@ -109,7 +109,7 @@
 							<div class="header-column w-100">
 								<div class="header-row justify-content-between">
 									<div class="header-logo z-index-2 col-lg-2 px-0">
-										<a href="index.php">
+										<a href="{{route('index')}}">
 											<img alt="Logo" style="width: 100%;" src="{{asset("assets/front/img/demos/auto-services/al_shamal_food_logo.png")}}">
 										</a>
 									</div>
@@ -127,7 +127,7 @@
                                                             @endforeach
 														</ul>
 													</li>
-													<li><a href="products.php" class="nav-link {{is_active_menu(route('index'))}}">Products</a></li>
+													<li><a href="{{route('products')}}" class="nav-link {{is_active_menu(route('products'))}}">Products</a></li>
 													<li><a href="{{route('contact-us')}}" class="nav-link {{is_active_menu(route('contact-us'))}}">Contact</a></li>
 												</ul>
 											</nav>

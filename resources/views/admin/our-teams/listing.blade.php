@@ -83,7 +83,7 @@
                         if (xhr.status === 401) {
                             toast("The session has been expired", "error");
                             setTimeout(function() {
-                                window.location.href = "/";
+                                window.location.href = "{{route('login')}}";
                             }, 3000);
                         }
                     }
@@ -154,7 +154,7 @@
                     if (xhr.status === 401) {
                         toast("The session has been expired", "error");
                         setTimeout(function() {
-                            window.location.href = "/";
+                            window.location.href = "{{route('login')}}";
                         }, 3000);
                     } else {
                         toast('Server error loading dialog', 'error');
