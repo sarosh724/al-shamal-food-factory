@@ -22,8 +22,8 @@ class OurTeamRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'designation' => 'required',
+            'name' => 'required | max:255',
+            'designation' => 'required | max:255',
             'image' => 'file | nullable'
         ];
     }

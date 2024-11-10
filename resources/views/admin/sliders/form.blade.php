@@ -74,7 +74,7 @@
             @include('template.partials.form.input', [
                 'label' => 'Image Arabic',
                 'name' => 'image_arabic',
-                'required' => true,
+                'required' => false,
                 'type' => 'file',
                 'placeholder' => 'Image'
             ])
@@ -83,7 +83,7 @@
             @include('template.partials.form.input', [
                 'label' => 'Image English',
                 'name' => 'image_english',
-                'required' => true,
+                'required' => false,
                 'type' => 'file',
                 'placeholder' => 'Image'
             ])
@@ -128,10 +128,10 @@
                     required: true
                 },
                 image_arabic: {
-                    required: true
+                    required: false
                 },
                 image_english: {
-                    required: true
+                    required: false
                 }
             },
             submitHandler: function(form) {

@@ -41,6 +41,12 @@
 ])
 
 @include('template.partials.menu-item', [
+    'label' => 'Breadcrumbs',
+    'icon' => 'book',
+    'url' => route('admin.breadcrumbs.list'),
+])
+
+@include('template.partials.menu-item', [
     'label' => 'Our Team',
     'icon' => 'users',
     'url' => route('admin.our-team.list'),

@@ -52,6 +52,9 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Interfaces\AppointmentInterface',
             'App\Repositories\AppointmentRepository'
         );
-
+        $this->app->bind(
+            'App\Interfaces\BreadCrumbInterface',
+            'App\Repositories\BreadCrumbRepository'
+        );
     }
 }

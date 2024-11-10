@@ -32,8 +32,6 @@
                 'Slug',
                 'Title English',
                 'Title Arabic',
-                'Description English',
-                'Description Arabic',
                 'Image',
                 'Status',
                 'Actions',
@@ -100,14 +98,6 @@
                     {
                         data: 'title_arabic',
                         name: 'title_arabic'
-                    },
-                    {
-                        data: 'description_english',
-                        name: 'description_english'
-                    },
-                    {
-                        data: 'description_arabic',
-                        name: 'description_arabic'
                     },
                     {
                         data: 'image',

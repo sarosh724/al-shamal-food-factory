@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Page;
 use App\Models\Product;
 use App\Models\Service;
 use App\Models\Setting;
@@ -223,7 +224,7 @@ function badge($status)
 
 function fetchServices()
 {
-    return Service::selectRaw('id, CONCAT(title_english,"-",title_arabic) as concatenation')->where('status', 'active')->get();
+    return Service::selectRaw('id, title_english, title_arabic, slug')->where('status', 'active')->get();
 }
 
 function fetchProducts()
@@ -234,4 +235,9 @@ function fetchProducts()
 function getSetting($slug)
 {
     return Setting::where('slug', $slug)->first()->value;
+}
+
+function fetchPage($slug)
+{
+    return Page::where('status', 'active')->where('slug', $slug)->first();
 }

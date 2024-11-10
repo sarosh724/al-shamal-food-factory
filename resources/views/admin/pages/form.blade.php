@@ -45,7 +45,7 @@
             @include('template.partials.form.input', [
                 'label' => 'Image',
                 'name' => 'image',
-                'required' => true,
+                'required' => false,
                 'type' => 'file',
                 'placeholder' => 'Image'
             ])
@@ -86,7 +86,7 @@
                     required: false
                 },
                 image: {
-                    required: true
+                    required: false
                 }
             },
             submitHandler: function(form) {

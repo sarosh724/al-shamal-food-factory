@@ -21,6 +21,8 @@ class ServiceRepository implements ServiceInterface
 
         if ($request->filled('status') && $request->status <> 'all')   $data->where("status", $request->status);
 
+        if ($request->filled('slug'))   $data->where("slug", $request->slug);
+
         if (isset($id)) $data->where("services.id", $id);
 
         return $data->orderBy("services.created_at", "DESC");

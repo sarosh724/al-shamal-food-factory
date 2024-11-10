@@ -146,6 +146,15 @@ Route::namespace('App\Http\Controllers\Backend')->prefix('admin')->group(functio
                 Route::delete('{id}', 'AppointmentController@destroy')->name('delete');
                 Route::post('/update-status', 'AppointmentController@updateStatus')->name('update-status');
             });
+
+        // Breadcrumb
+        Route::prefix('breadcrumbs')
+        ->name('admin.breadcrumbs.')
+        ->group(function () {
+            Route::get('/', 'BreadCrumbController@index')->name('list');
+            Route::get('/modal/{id?}', 'BreadCrumbController@modal')->name('modal');
+            Route::post('/store', 'BreadCrumbController@store')->name('store');
+        });
     });
 });
 
@@ -155,6 +164,7 @@ Route::namespace('App\Http\Controllers\Frontend')->group(function () {
     Route::get('/', 'SiteController@index')->name('index');
     Route::get('about', 'SiteController@about')->name('about');
     Route::get('services', 'SiteController@services')->name('services');
+    Route::get('service-details/{slug}', 'SiteController@serviceDetails')->name('service-details');
     Route::get('service-products/{id}', 'SiteController@serviceProducts')->name('service-products');
     Route::get('contact-us', 'SiteController@contactUs')->name('contact-us');
     Route::post('store-customer-inquiry', 'SiteController@storeCustomerInquiry')->name('store-customer-inquiry');
