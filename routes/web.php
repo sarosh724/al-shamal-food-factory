@@ -171,4 +171,5 @@ Route::namespace('App\Http\Controllers\Frontend')->group(function () {
     Route::post('store-customer-inquiry', 'SiteController@storeCustomerInquiry')->name('store-customer-inquiry');
     Route::get('appointment', 'SiteController@appointment')->name('appointment');
     Route::post('store-appointment', 'SiteController@storeAppointment')->name('store-appointment');
+    Route::get('language/{locale}', 'SiteController@changeLocale')->name('language');
 });

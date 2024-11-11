@@ -147,7 +147,7 @@
 									<div class="d-flex col-auto pe-0 ps-0 ps-xl-3">
 										<div class="header-nav-features ps-0 ms-1">
 											<div class="header-nav-feature header-nav-features-cart header-nav-features-cart-big d-inline-flex top-2 ms-2">
-												<a href="AR/index.php"  title="Arabic Website">
+												<a href="{{ route('language', app()->getLocale() === 'en' ? 'ar' : 'en') }}"  title="Arabic Website">
 													<img src="{{asset("assets/front/img/eng_ar.png")}}" height="35" alt="" class="header-nav-top-icon-img">
 
 												</a>

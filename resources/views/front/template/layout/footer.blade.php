@@ -5,7 +5,7 @@
 						<div class="col-md-4 mb-5 mb-md-0">
 							<div class="feature-box flex-column flex-xl-row align-items-center align-items-lg-start text-center text-lg-start">
 								<div class="feature-box-icon bg-transparent mb-4 mb-xl-0 p-0">
-									<img width="45" src="img/demos/auto-services/icons/icon-location.svg" alt="" data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-light position-relative bottom-3'}" />
+									<img width="45" src="{{asset("assets/front/img/demos/auto-services/icons/icon-location.svg")}}" alt="" data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-light position-relative bottom-3'}" />
 								</div>
 								<div class="feature-box-info line-height-1 ps-2">
 									<span class="d-block font-weight-bold text-color-light text-5 mb-2">Address</span>
@@ -81,7 +81,7 @@
 							<h5 class="text-transform-none font-weight-bold text-color-light text-4-5 mb-4">Services</h5>
 							<ul class="list list-unstyled mb-0">
                                 @foreach(fetchServices() as $service)
-								<li class="mb-0"><a href="services-details.php">{{ Str::title($service->title_english)}}</a></li>
+								<li class="mb-0"><a href="{{route('service-details', ['slug' => $service->slug])}}">{{ Str::title($service->title_english)}}</a></li>
                                 @endforeach
 							</ul>
 						</div>

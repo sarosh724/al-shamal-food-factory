@@ -1,0 +1,26 @@
+body{direction: rtl !important;}
+.custom-social-icons-divider{direction: ltr !important;}
+.textAlignRight{text-align: right !important;}
+.breadcrumb{text-align: left !important;}
+.directionltr{direction: ltr !important;}
+.page-header-modern{text-align: right !important;}
+
+/* Wrapper for custom scrollbar */
+body {
+    overflow-y: scroll;
+    direction: rtl; /* Moves scrollbar to the left */
+    height: 100vh;
+}
+
+body::-webkit-scrollbar {
+    width: 4px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}

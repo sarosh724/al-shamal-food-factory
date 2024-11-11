@@ -37,26 +37,26 @@
         <div class="row pt-5">
             <div class="col">
                 <div class="row mt-3 mb-5">
-                    @if($ourMission)
-                    <div class="col-md-4 appear-animation" data-appear-animation="fadeInLeftShorter"
-                        data-appear-animation-delay="800">
-                        <h3 class="font-weight-bold text-4 mb-2">{{ $ourMission->title_english }}</h3>
-                        <p>{!! $ourMission->description_english !!}</p>
-                    </div>
+                    @if ($ourMission)
+                        <div class="col-md-4 appear-animation" data-appear-animation="fadeInLeftShorter"
+                            data-appear-animation-delay="800">
+                            <h3 class="font-weight-bold text-4 mb-2">{{ $ourMission->title_english }}</h3>
+                            <p>{!! $ourMission->description_english !!}</p>
+                        </div>
                     @endif
-                    @if($ourVision)
-                    <div class="col-md-4 appear-animation" data-appear-animation="fadeIn"
-                        data-appear-animation-delay="600">
-                        <h3 class="font-weight-bold text-4 mb-2">{{ $ourVision->title_english }}</h3>
-                        <p>{!! $ourVision->description_english !!}</p>
-                    </div>
+                    @if ($ourVision)
+                        <div class="col-md-4 appear-animation" data-appear-animation="fadeIn"
+                            data-appear-animation-delay="600">
+                            <h3 class="font-weight-bold text-4 mb-2">{{ $ourVision->title_english }}</h3>
+                            <p>{!! $ourVision->description_english !!}</p>
+                        </div>
                     @endif
-                    @if($whyUs)
-                    <div class="col-md-4 appear-animation" data-appear-animation="fadeInRightShorter"
-                        data-appear-animation-delay="800">
-                        <h3 class="font-weight-bold text-4 mb-2">{{ $whyUs->title_english }}</h3>
-                        <p>{!! $whyUs->description_english !!}</p>
-                    </div>
+                    @if ($whyUs)
+                        <div class="col-md-4 appear-animation" data-appear-animation="fadeInRightShorter"
+                            data-appear-animation-delay="800">
+                            <h3 class="font-weight-bold text-4 mb-2">{{ $whyUs->title_english }}</h3>
+                            <p>{!! $whyUs->description_english !!}</p>
+                        </div>
                     @endif
                 </div>
             </div>
@@ -104,71 +104,73 @@
     </section>
 
 
-@if($meetOurTeam)
-    <div class="container appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="300">
-        <div class="row pt-5 pb-4 my-5">
-            <div class="col-md-6 order-2 order-md-1 text-center text-md-start">
-                <div class="owl-carousel owl-theme nav-style-1 nav-center-images-only stage-margin mb-0"
-                    data-plugin-options="{'responsive': {'576': {'items': 1}, '768': {'items': 1}, '992': {'items': 2}, '1200': {'items': 2}}, 'margin': 25, 'loop': false, 'nav': true, 'dots': false, 'stagePadding': 40}">
-                    @foreach ($teamMembers as $teamMember)
-                        <div>
-                            <img class="img-fluid rounded-0 mb-4" src="{{ $teamMember->image }}" alt="" />
-                            <h3 class="font-weight-bold text-color-dark text-4 mb-0">{{ $teamMember->name }}</h3>
-                            <p class="text-2 mb-0">{{ $teamMember->designation }}</p>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-            <div class="col-md-6 order-1 order-md-2 text-center text-md-start mb-5 mb-md-0">
-                <h2 class="text-color-dark font-weight-normal text-6 mb-2 pb-1">Meet <strong
-                        class="font-weight-extra-bold">Our Team</strong></h2>
-                <p class="lead">{!! $meetOurTeam->description_english !!}</p>
-            </div>
-        </div>
-    </div>
-    @endif
-@if($testimonial)
-    <section class="section border-0 m-0">
-        <div class="container pb-3 my-5">
-            <div class="row justify-content-center pb-3 mb-4">
-                <div class="col text-center">
-                    <h2 class="font-weight-bold text-color-dark line-height-1 mb-0">{{ $testimonial->title_english }}
-                    </h2>
-                    <div class="d-inline-block custom-divider divider divider-primary divider-small my-3">
-                        <hr class="my-0">
-                    </div>
-                    <p class="font-weight-bold text-3-5 mb-1">{!! $testimonial->description_english !!}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="owl-carousel nav-outside nav-style-1 nav-dark nav-arrows-thin nav-font-size-lg custom-carousel-box-shadow-1 mb-0"
-                        data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 2}, '979': {'items': 2}, '1199': {'items': 3}}, 'autoplay': true, 'autoplayTimeout': 5000, 'autoplayHoverPause': true, 'dots': false, 'nav': true, 'loop': true, 'margin': 15, 'stagePadding': '75'}">
-                        @foreach ($testimonials as $testimonial)
+    @if ($meetOurTeam)
+        <div class="container appear-animation" data-appear-animation="fadeInUpShorter"
+            data-appear-animation-delay="300">
+            <div class="row pt-5 pb-4 my-5">
+                <div class="col-md-6 order-2 order-md-1 text-center text-md-start">
+                    <div class="owl-carousel owl-theme nav-style-1 nav-center-images-only stage-margin mb-0"
+                        data-plugin-options="{'responsive': {'576': {'items': 1}, '768': {'items': 1}, '992': {'items': 2}, '1200': {'items': 2}}, 'margin': 25, 'loop': false, 'nav': true, 'dots': false, 'stagePadding': 40}">
+                        @foreach ($teamMembers as $teamMember)
                             <div>
-                                <div class="card custom-border-radius-1">
-                                    <div class="card-body">
-                                        <div
-                                            class="custom-testimonial-style-1 testimonial testimonial-style-2 testimonial-with-quotes testimonial-remove-right-quote text-center mb-0">
-                                            <blockquote>
-                                                <p class="text-color-dark text-3 font-weight-light px-0 mb-2">
-                                                    {{ $testimonial->comment }}</p>
-                                            </blockquote>
-                                            <div class="testimonial-author">
-                                                <p><strong
-                                                        class="font-weight-extra-bold">{{ $testimonial->name }}</strong>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <img class="img-fluid rounded-0 mb-4" src="{{ $teamMember->image }}" alt="" />
+                                <h3 class="font-weight-bold text-color-dark text-4 mb-0">{{ $teamMember->name }}</h3>
+                                <p class="text-2 mb-0">{{ $teamMember->designation }}</p>
                             </div>
                         @endforeach
                     </div>
                 </div>
+                <div class="col-md-6 order-1 order-md-2 text-center text-md-start mb-5 mb-md-0">
+                    <h2 class="text-color-dark font-weight-normal text-6 mb-2 pb-1">Meet <strong
+                            class="font-weight-extra-bold">Our Team</strong></h2>
+                    <p class="lead">{!! $meetOurTeam->description_english !!}</p>
+                </div>
             </div>
         </div>
-    </section>
-@endif
+    @endif
+    @if ($testimonial)
+        <section class="section border-0 m-0">
+            <div class="container pb-3 my-5">
+                <div class="row justify-content-center pb-3 mb-4">
+                    <div class="col text-center">
+                        <h2 class="font-weight-bold text-color-dark line-height-1 mb-0">
+                            {{ $testimonial->title_english }}
+                        </h2>
+                        <div class="d-inline-block custom-divider divider divider-primary divider-small my-3">
+                            <hr class="my-0">
+                        </div>
+                        <p class="font-weight-bold text-3-5 mb-1">{!! $testimonial->description_english !!}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="owl-carousel nav-outside nav-style-1 nav-dark nav-arrows-thin nav-font-size-lg custom-carousel-box-shadow-1 mb-0"
+                            data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 2}, '979': {'items': 2}, '1199': {'items': 3}}, 'autoplay': true, 'autoplayTimeout': 5000, 'autoplayHoverPause': true, 'dots': false, 'nav': true, 'loop': true, 'margin': 15, 'stagePadding': '75'}">
+                            @foreach ($testimonials as $testimonial)
+                                <div>
+                                    <div class="card custom-border-radius-1">
+                                        <div class="card-body">
+                                            <div
+                                                class="custom-testimonial-style-1 testimonial testimonial-style-2 testimonial-with-quotes testimonial-remove-right-quote text-center mb-0">
+                                                <blockquote>
+                                                    <p class="text-color-dark text-3 font-weight-light px-0 mb-2">
+                                                        {{ $testimonial->comment }}</p>
+                                                </blockquote>
+                                                <div class="testimonial-author">
+                                                    <p><strong
+                                                            class="font-weight-extra-bold">{{ $testimonial->name }}</strong>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
 </div>
 @include('front.template.layout.footer')

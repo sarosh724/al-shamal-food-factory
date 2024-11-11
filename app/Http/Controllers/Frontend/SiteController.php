@@ -56,7 +56,14 @@ class SiteController extends Controller
         $testimonial = $this->pageInterface->list($request->merge(['status' => 'active']), null, 'testimonial')->first();
         $appointment = $this->pageInterface->list($request->merge(['status' => 'active']), null, 'appointment')->first();
 
-        return view('front.index', compact('slider', 'services', 'testimonials', 'companyHistory', 'ourMission', 'anyQuestion', 'service', 'testimonial', 'appointment'));
+        if (app()->getLocale() == 'en') {
+
+            return view('front.index', compact('slider', 'services', 'testimonials', 'companyHistory', 'ourMission', 'anyQuestion', 'service', 'testimonial', 'appointment'));
+
+        }
+        else{
+            return view('front.arabic.index', compact('slider', 'services', 'testimonials', 'companyHistory', 'ourMission', 'anyQuestion', 'service', 'testimonial', 'appointment'));
+        }
     }
 
     public function about(Request $request)
@@ -71,8 +78,13 @@ class SiteController extends Controller
         $teamMembers = $this->ourTeamInterface->list($request->merge(['status' => 'active']))->get();
         $aboutBreadcrumb = $this->breadCrumbInterface->list(null, 'about')->first();
 
+        if (app()->getLocale() == 'en') {
 
-        return view('front.about', compact('aboutBreadcrumb', 'whoWeAre', 'ourMission', 'ourVision', 'whyUs', 'meetOurTeam', 'testimonial', 'testimonials', 'teamMembers'));
+            return view('front.about', compact('aboutBreadcrumb', 'whoWeAre', 'ourMission', 'ourVision', 'whyUs', 'meetOurTeam', 'testimonial', 'testimonials', 'teamMembers'));
+        }
+        else{
+            return view('front.arabic.about', compact('aboutBreadcrumb', 'whoWeAre', 'ourMission', 'ourVision', 'whyUs', 'meetOurTeam', 'testimonial', 'testimonials', 'teamMembers'));
+        }
     }
 
     public function services(Request $request)
@@ -142,5 +154,14 @@ class SiteController extends Controller
         $result = $this->appointmentInterface->store($appointmentRequest);
 
         return $this->jsonResponse($result["type"], $result["message"]);
+    }
+
+    public function changeLocale(Request $request, $locale)
+    {
+        if (in_array($locale, ['en', 'ar'])) {
+            session(['locale' => $locale]);
+        }
+
+        return to_route('index');
     }
 }
