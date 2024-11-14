@@ -4,13 +4,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-                    <h1 class="text-dark">Our <strong>Services</strong></h1>
+                    <h1 class="text-dark">{{Str::title(__('our'))}} <strong>{{Str::title(__('services'))}}</strong></h1>
                     <span class="sub-title text-dark">{{ $serviceBreadcrumb->subtitle_english }}</span>
                 </div>
                 <div class="col-md-4 order-1 order-md-2 align-self-center">
                     <ul class="breadcrumb d-block text-md-end">
-                        <li><a href="index.php">Home</a></li>
-                        <li class="active">Services</li>
+                        <li><a href="{{route('index')}}">{{Str::title(__('home'))}}</a></li>
+                        <li class="active">{{Str::title(__('services'))}}</li>
                     </ul>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h4 class="mb-0"><a href="#"
+                                <h4 class="mb-0"><a href="{{route('service-details', ['slug' => $service->slug])}}"
                                         class="text-3 text-uppercase font-weight-bold pt-2 d-block text-dark text-decoration-none">{{ $service->title_english }}</a>
                                 </h4>
                                 <p class="text-2">{!! $service->detail_english !!}</p>

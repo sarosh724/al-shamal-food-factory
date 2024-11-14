@@ -5,13 +5,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-                    <h1 class="text-dark"> <strong>Contact</strong></h1>
+                    <h1 class="text-dark"> <strong>{{Str::title(__('contact'))}}</strong></h1>
                     <span class="sub-title text-dark">{{ $contactBreadcrumb->subtitle_english }}</span>
                 </div>
                 <div class="col-md-4 order-1 order-md-2 align-self-center">
                     <ul class="breadcrumb d-block text-md-end">
-                        <li><a href="{{ route('index') }}">Home</a></li>
-                        <li class="active">Contact</li>
+                        <li><a href="{{ route('index') }}">{{Str::title(__('home'))}}</a></li>
+                        <li class="active">{{Str::title(__('contact'))}}</li>
                     </ul>
                 </div>
             </div>
@@ -23,25 +23,25 @@
             <div class="col-lg-5 col-xl-4 offset-xl-1 mb-5 mb-lg-0">
                 <div class="overflow-hidden">
                     <h2 class="text-color-dark font-weight-bold line-height-3 text-5-5 mb-0 appear-animation"
-                        data-appear-animation="maskUp" data-appear-animation-delay="250">{{ getSetting('location') }}
+                        data-appear-animation="maskUp" data-appear-animation-delay="250">{{ getSetting('location')->value }}
                     </h2>
                 </div>
                 <div class="overflow-hidden">
-                    <a href="{{ getSetting('map-link') }}" target="_blank"
+                    <a href="{{ getSetting('map-link')->value }}" target="_blank"
                         class="d-inline-block custom-text-underline-1 font-weight-bold border-color-primary text-decoration-none text-3-5 appear-animation"
-                        data-appear-animation="maskUp" data-appear-animation-delay="500">GET DIRECTIONS</a>
+                        data-appear-animation="maskUp" data-appear-animation-delay="500">{{Str::upper(__('get_directions'))}}</a>
                 </div>
                 <ul class="list list-unstyled text-color-dark font-weight-bold text-4 py-2 my-4 appear-animation"
                     data-appear-animation="fadeInUpShorter" data-appear-animation-delay="750">
                     <li class="d-flex align-items-center mb-2">
                         <i class="icons icon-envelope text-color-dark me-2"></i>
-                        Email: <a href="mailto:{{ getSetting('email') }}"
-                            class="text-color-dark text-color-hover-primary text-decoration-none ms-1">{{ getSetting('email') }}</a>
+                        {{Str::title(__('email'))}}: <a href="mailto:{{ getSetting('email')->value }}"
+                            class="text-color-dark text-color-hover-primary text-decoration-none ms-1">{{ getSetting('email')->value }}</a>
                     </li>
                     <li class="d-flex align-items-center mb-0">
                         <i class="icons icon-phone text-color-dark me-2"></i>
-                        Phone: <a href="tel:{{ getSetting('contact-1') }} "
-                            class="text-color-dark text-color-hover-primary text-decoration-none ms-1">{{ getSetting('contact-1') }}</a>
+                        {{Str::title(__('phone'))}}: <a href="tel:{{ getSetting('contact-1')->value }} "
+                            class="text-color-dark text-color-hover-primary text-decoration-none ms-1">{{ getSetting('contact-1')->value }}</a>
                     </li>
                 </ul>
                 <p class="mb-0 appear-animation" data-appear-animation="fadeInUpShorter"
@@ -52,25 +52,25 @@
                 <form id="contact-form" class="custom-form-style-1" method="POST">
                     @csrf <!-- CSRF token to secure the request -->
                     <div class="contact-form-success alert alert-success d-none mt-4">
-                        <strong>Success!</strong> Your message has been sent to us.
+                        <strong>{{Str::title(__('success'))}}!</strong> {{Str::title(__('contact_alert_success'))}}.
                     </div>
 
                     <div class="contact-form-error alert alert-danger d-none mt-4">
-                        <strong>Error!</strong> There was an error sending your message.
+                        <strong>{{Str::title(__('error'))}}!</strong> {{Str::title(__('contact_alert_failed'))}}.
                         <span class="mail-error-message text-1 d-block"></span>
                     </div>
 
                     <div class="row row-gutter-sm">
                         <div class="form-group col mb-3">
                             <input type="text" value="" data-msg-required="Please enter your name."  class="form-control" name="name" id="name" required
-                                placeholder="First Name">
+                                placeholder="{{Str::title(__('name'))}}">
                         </div>
                     </div>
                     <div class="row row-gutter-sm">
                         <div class="form-group col mb-3">
                             <input type="number" value="" data-msg-required="Please enter your phone number."
                              class="form-control" min="0" name="phone" id="phone" required
-                                placeholder="Phone Number">
+                                placeholder="{{Str::title(__('phone_number'))}}">
                         </div>
                     </div>
                     <div class="row row-gutter-sm">
@@ -78,13 +78,13 @@
                             <input type="email" value="" data-msg-required="Please enter your email address."
                                 data-msg-email="Please enter a valid email address."
                                 class="form-control" name="email" id="email" required
-                                placeholder="E-mail Address">
+                                placeholder="{{Str::title(__('email_address'))}}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col mb-3">
                             <textarea data-msg-required="Please enter your message." rows="4" class="form-control"
-                                name="message" id="message" required placeholder="Message"></textarea>
+                                name="message" id="message" required placeholder="{{Str::title(__('message'))}}"></textarea>
                         </div>
                     </div>
                     <div class="row appear-animation" data-appear-animation="fadeInUpShorterPlus"
@@ -93,7 +93,7 @@
                             <button type="submit"
                                 class="btn btn-primary text-color-light btn-modern font-weight-bold custom-btn-border-radius custom-btn-arrow-effect-1 text-3 px-5 py-3"
                                 data-loading-text="Loading...">
-                                SUBMIT
+                                {{Str::upper(__('submit'))}}
                                 <svg class="ms-2" version="1.1" viewBox="0 0 15.698 8.706" width="17"
                                     xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -112,7 +112,7 @@
     <!-- Google Maps - Go to the bottom of the page to change settings and map location. -->
     <div class="position-relative appear-animation" data-appear-animation="fadeInUpShorterPlus"
         data-appear-animation-delay="750">
-        {!! getSetting('map-iframe') !!}
+        {!! getSetting('map-iframe')->value !!}
     </div>
 
 

@@ -33,6 +33,12 @@ class OurTeamController extends Controller
                 ->addColumn('designation', function ($data) {
                     return @$data->designation;
                 })
+                ->addColumn('name_arabic', function ($data) {
+                    return @$data->name_arabic;
+                })
+                ->addColumn('designation_arabic', function ($data) {
+                    return @$data->designation_arabic;
+                })
                 ->addColumn('image', function ($data) {
                     return '<a href="' . @$data->image . '" target="_blank" title="View Image" data-fancybox="gallery" data-id="' . @$data->id . '"
                     class="btn btn-sm" ><i class="fa fa-image color-gray"></i></a>';

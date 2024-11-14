@@ -25,6 +25,26 @@
         </div>
         <div class="col-lg-12">
             @include('template.partials.form.input', [
+                'label' => 'Name Arabic',
+                'name' => 'name_arabic',
+                'type' => 'text',
+                'required' => true,
+                'placeholder' => 'Name Arabic',
+                'value' => @$ourTeam->name_arabic,
+            ])
+        </div>
+        <div class="col-lg-12">
+            @include('template.partials.form.input', [
+                'label' => 'Designation Arabic',
+                'name' => 'designation_arabic',
+                'required' => true,
+                'type' => 'text',
+                'placeholder' => 'Designation Arabic',
+                'value' => @$ourTeam->designation_arabic,
+            ])
+        </div>
+        <div class="col-lg-12">
+            @include('template.partials.form.input', [
                 'label' => 'Image',
                 'name' => 'image',
                 'required' => false,
@@ -56,6 +76,12 @@
                     required: true
                 },
                 designation: {
+                    required: true
+                },
+                name_arabic: {
+                    required: true
+                },
+                designation_arabic: {
                     required: true
                 },
                 image: {

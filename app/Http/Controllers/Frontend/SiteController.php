@@ -92,7 +92,12 @@ class SiteController extends Controller
         $serviceBreadcrumb = $this->breadCrumbInterface->list(null, 'service')->first();
         $services = $this->serviceInterface->list($request->merge(['status' => 'active']))->get();
 
-        return view('front.services', compact('services', 'serviceBreadcrumb'));
+        if (app()->getLocale() == 'en') {
+            return view('front.services', compact('services', 'serviceBreadcrumb'));
+        }
+        else{
+            return view('front.arabic.services', compact('services', 'serviceBreadcrumb'));
+        }
     }
 
     public function serviceDetails(Request $request, $slug)
@@ -104,7 +109,12 @@ class SiteController extends Controller
         }
         $appointment = $this->pageInterface->list($request->merge(['status' => 'active']), null, 'appointment')->first();
 
-        return view('front.services-details', compact('service', 'appointment'));
+        if (app()->getLocale() == 'en') {
+            return view('front.services-details', compact('service', 'appointment'));
+        }
+        else{
+            return view('front.arabic.services-details', compact('service', 'appointment'));
+        }
     }
 
     public function products(Request $request)
@@ -116,14 +126,23 @@ class SiteController extends Controller
         $testimonials = $this->testimonialInterface->list()->get();
         $appointment = $this->pageInterface->list($request->merge(['status' => 'active']), null, 'appointment')->first();
 
-        return view('front.products', compact('products', 'productBreadcrumb', 'serviceId', 'testimonial', 'testimonials', 'appointment'));
+        if (app()->getLocale() == 'en') {
+            return view('front.products', compact('products', 'productBreadcrumb', 'serviceId', 'testimonial', 'testimonials', 'appointment'));
+        }
+        else{
+            return view('front.arabic.products', compact('products', 'productBreadcrumb', 'serviceId', 'testimonial', 'testimonials', 'appointment'));
+        }
     }
 
     public function productDetail(Request $request, $id)
     {
         $product = $this->productInterface->list($request->merge(['status' => 'active']), $id)->first();
-
-        return view('front.product-quick-view', compact('product'));
+        if (app()->getLocale() == 'en') {
+            return view('front.product-quick-view', compact('product'));
+        }
+        else{
+            return view('front.arabic.product-quick-view', compact('product'));
+        }
     }
 
     public function contactUs(Request $request)
@@ -131,7 +150,12 @@ class SiteController extends Controller
         $contactBreadcrumb = $this->breadCrumbInterface->list(null, 'contact')->first();
         $contact = $this->pageInterface->list($request->merge(['status' => 'active']), null, 'contact')->first();
 
-        return view('front.contact', compact('contactBreadcrumb', 'contact'));
+        if (app()->getLocale() == 'en') {
+            return view('front.contact', compact('contactBreadcrumb', 'contact'));
+        }
+        else {
+            return view('front.arabic.contact', compact('contactBreadcrumb', 'contact'));
+        }
     }
 
     public function storeCustomerInquiry(CustomerInquiryRequest $customerInquiryRequest)
@@ -146,7 +170,12 @@ class SiteController extends Controller
         $appointmentBreadcrumb = $this->breadCrumbInterface->list(null, 'appointment')->first();
         $appointment = $this->pageInterface->list($request->merge(['status' => 'active']), null, 'appointment')->first();
 
-        return view('front.appointment', compact('appointmentBreadcrumb', 'appointment'));
+        if (app()->getLocale() == 'en') {
+            return view('front.appointment', compact('appointmentBreadcrumb', 'appointment'));
+        }
+        else{
+            return view('front.arabic.appointment', compact('appointmentBreadcrumb', 'appointment'));
+        }
     }
 
     public function storeAppointment(AppointmentRequest $appointmentRequest)

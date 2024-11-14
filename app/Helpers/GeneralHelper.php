@@ -234,7 +234,7 @@ function fetchProducts()
 
 function getSetting($slug)
 {
-    return Setting::where('slug', $slug)->first()->value;
+    return Setting::where('slug', $slug)->first();
 }
 
 function fetchPage($slug)

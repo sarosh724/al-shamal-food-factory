@@ -9,8 +9,8 @@
                 </div>
                 <div class="col-md-4 order-1 order-md-2 align-self-center">
                     <ul class="breadcrumb d-block text-md-end">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="services.php">Services</a></li>
+                        <li><a href="{{route('index')}}">{{Str::title(__('home'))}}</a></li>
+                        <li><a href="{{route('services')}}">{{Str::title(__('services'))}}</a></li>
                         <li class="active">{{$service->title_english}}</li>
                     </ul>
                 </div>
@@ -28,7 +28,7 @@
             <div class="col-lg-4 order-lg-1 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="250">
                 <div class="card box-shadow-1 custom-border-radius-1 mb-5">
                     <div class="card-body z-index-1 py-4 my-3">
-                        <h2 class="text-color-dark font-weight-bold text-6 mb-4">All Services</h2>
+                        <h2 class="text-color-dark font-weight-bold text-6 mb-4">{{Str::title(__('all_services'))}}</h2>
                         <ul class="custom-nav-list-effect-1 list list-unstyled mb-0">
                             @foreach(fetchServices() as $item)
                             <li class="{{is_active_menu(route('service-details', ['slug' => $item->slug]))}}">
@@ -48,11 +48,11 @@
                                 <i class="icons icon-phone text-8 text-color-light"></i>
                             </div>
                             <div class="feature-box-info line-height-2 ps-1">
-                                <span class="d-block text-4 font-weight-medium text-color-light mb-1">CALL US NOW</span>
-                                <strong class="text-6"><a href="tel:{{getSetting('contact-1')}}" class="text-color-light text-decoration-none">{{getSetting('contact-1')}}</a></strong>
+                                <span class="d-block text-4 font-weight-medium text-color-light mb-1">{{Str::upper(__('call_us_now'))}}</span>
+                                <strong class="text-6"><a href="tel:{{getSetting('contact-1')->value}}" class="text-color-light text-decoration-none">{{getSetting('contact-1')->value}}</a></strong>
                             </div>
                         </div>
-                        <a href="{{route('appointment')}}" class="btn btn-light btn-outline custom-btn-border-radius font-weight-bold text-color-light text-color-hover-dark bg-color-hover-light btn-px-5 btn-py-3">MAKE AN APPOINTMENT</a>
+                        <a href="{{route('appointment')}}" class="btn btn-light btn-outline custom-btn-border-radius font-weight-bold text-color-light text-color-hover-dark bg-color-hover-light btn-px-5 btn-py-3">{{Str::upper(__('make_an_appointment'))}}</a>
                     </div>
                 </div>
             </div>

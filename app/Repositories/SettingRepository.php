@@ -25,7 +25,7 @@ class SettingRepository implements SettingInterface
         $result["type"] = "error";
         try {
             DB::beginTransaction();
-            Setting::where('id', $request->id)->update(['value' => $request->value]);
+            Setting::where('id', $request->id)->update(['value' => $request->value, 'value_arabic' => $request->arabic_value]);
             DB::commit();
             $result["type"] = "success";
             $result["message"] = "setting updated";

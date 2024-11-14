@@ -53,8 +53,7 @@
                     <div class="d-flex align-items-start align-items-sm-center flex-column flex-sm-row">
                         <a href="{{ route('about') }}"
                             class="btn btn-primary text-color-light custom-btn-border-radius font-weight-bold text-3 px-5 btn-py-3 me-sm-2 mb-3 mb-sm-0 appear-animation"
-                            data-appear-animation="fadeInRightShorterPlus" data-appear-animation-delay="950">VIEW
-                            MORE</a>
+                            data-appear-animation="fadeInRightShorterPlus" data-appear-animation-delay="950">{{Str::upper(__('view more'))}}</a>
                         <div class="feature-box align-items-center border border-top-0 border-end-0 border-bottom-0 custom-remove-mobile-xs-border-left ms-sm-4 ps-sm-4 appear-animation"
                             data-appear-animation="fadeInRightShorterPlus" data-appear-animation-delay="1200">
                             <div class="feature-box-icon bg-transparent">
@@ -62,8 +61,8 @@
                             </div>
                             <div class="feature-box-info line-height-2 ps-1">
                                 <span class="d-block text-1 font-weight-semibold text-color-default">CALL US NOW</span>
-                                <strong class="text-4-5"><a href="tel:{{ getSetting('contact-1') }}"
-                                        class="text-color-dark text-color-hover-primary text-decoration-none">{{ getSetting('contact-1') }}</a></strong>
+                                <strong class="text-4-5"><a href="tel:{{ getSetting('contact-1')->value }}"
+                                        class="text-color-dark text-color-hover-primary text-decoration-none">{{ getSetting('contact-1')->value }}</a></strong>
                             </div>
                         </div>
                     </div>
@@ -113,8 +112,7 @@
                             {{ $ourMission->title_english }}</h3>
                         <p class="pb-1 mb-2">{!! $ourMission->description_english !!}</p>
                         <a href="{{ route('about') }}"
-                            class="btn btn-primary text-color-light custom-btn-border-radius font-weight-bold btn-px-5 py-3 mb-2">VIEW
-                            MORE</a>
+                            class="btn btn-primary text-color-light custom-btn-border-radius font-weight-bold btn-px-5 py-3 mb-2">{{Str::upper(__('view more'))}}</a>
                     </div>
                 </div>
             @endif
@@ -126,8 +124,7 @@
                             {{ $anyQuestion->title_english }}</h3>
                         <p class="pb-1 mb-2">{!! $anyQuestion->description_english !!}</p>
                         <a href="{{ route('contact-us') }}"
-                            class="btn btn-primary text-color-light custom-btn-border-radius font-weight-bold btn-px-5 py-3">CONTACT
-                            US</a>
+                            class="btn btn-primary text-color-light custom-btn-border-radius font-weight-bold btn-px-5 py-3">{{Str::upper(__('contact_us'))}}</a>
                     </div>
                 </div>
             @endif
@@ -171,8 +168,7 @@
             <div class="col text-center">
                 <a href="{{ route('services') }}"
                     class="btn btn-primary text-color-light custom-btn-border-radius font-weight-bold text-3 btn-px-5 btn-py-3 appear-animation"
-                    data-appear-animation="fadeInUpShorterPlus" data-appear-animation-delay="850">VIEW ALL
-                    SERVICES</a>
+                    data-appear-animation="fadeInUpShorterPlus" data-appear-animation-delay="850">{{Str::upper(__('view_all_services'))}}</a>
             </div>
         </div>
     </div>
@@ -239,15 +235,13 @@
                                 <i class="icons icon-phone text-6 text-color-light"></i>
                             </div>
                             <div class="feature-box-info line-height-2 ps-1">
-                                <span class="d-block text-1 font-weight-semibold text-color-light mb-1">CALL US
-                                    NOW</span>
-                                <strong class="text-4-5"><a href="tel:{{ getSetting('contact-1') }}"
-                                        class="text-color-light text-decoration-none">{{ getSetting('contact-1') }}</a></strong>
+                                <span class="d-block text-1 font-weight-semibold text-color-light mb-1">{{Str::upper(__('call_us_now'))}}</span>
+                                <strong class="text-4-5"><a href="tel:{{ getSetting('contact-1')->value }}"
+                                        class="text-color-light text-decoration-none">{{ getSetting('contact-1')->value }}</a></strong>
                             </div>
                         </div>
                         <a href="{{route('appointment')}}"
-                            class="btn btn-light btn-outline custom-btn-border-radius border-color-light font-weight-bold text-color-light text-color-hover-dark bg-color-hover-light btn-px-5 btn-py-3">MAKE
-                            AN APPOINTMENT</a>
+                            class="btn btn-light btn-outline custom-btn-border-radius border-color-light font-weight-bold text-color-light text-color-hover-dark bg-color-hover-light btn-px-5 btn-py-3">{{Str::upper(__('make_an_appointment'))}}</a>
                     </div>
                 </div>
             </div>

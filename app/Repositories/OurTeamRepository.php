@@ -32,6 +32,8 @@ class OurTeamRepository implements OurTeamInterface
             $page = isset($request->our_team_id) ? OurTeam::find($request->our_team_id) : new OurTeam();
             $page->name = $request->name;
             $page->designation = $request->designation;
+            $page->name_arabic = $request->name_arabic;
+            $page->designation_arabic = $request->designation_arabic;
             if (isset($request->image) && $request->image != 'undefined') {
                 $response = $this->uploadImage($request->image, 'pages');
                 if ($response['status']) {

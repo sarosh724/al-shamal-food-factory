@@ -21,8 +21,9 @@
             'columns' => [
                 'Sr.',
                 'Name',
-                'Designation',
                 'Comment',
+                'Name Arabic',
+                'Comment Arabic',
                 'Actions',
             ],
         ])
@@ -79,12 +80,16 @@
                         name: 'name'
                     },
                     {
-                        data: 'designation',
-                        name: 'designation'
-                    },
-                    {
                         data: 'comment',
                         name: 'comment'
+                    },
+                    {
+                        data: 'name_arabic',
+                        name: 'name_arabic'
+                    },
+                    {
+                        data: 'comment_arabic',
+                        name: 'comment_arabic'
                     },
                     {
                         data: 'actions',

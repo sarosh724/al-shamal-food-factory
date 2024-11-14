@@ -29,8 +29,9 @@ class TestimonialRepository implements TestimonialInterface
             DB::beginTransaction();
             $testimonial = isset($request->testimonial_id) ? Testimonial::find($request->testimonial_id) : new Testimonial();
             $testimonial->name = $request->name;
-            $testimonial->designation = $request->designation;
             $testimonial->comment = $request->comment;
+            $testimonial->name_arabic = $request->name_arabic;
+            $testimonial->comment_arabic = $request->comment_arabic;
             $testimonial->save();
             DB::commit();
             $result["type"] = "success";

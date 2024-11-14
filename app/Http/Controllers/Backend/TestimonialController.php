@@ -30,11 +30,14 @@ class TestimonialController extends Controller
                 ->addColumn('name', function ($data) {
                     return @$data->name;
                 })
-                ->addColumn('designation', function ($data) {
-                    return @$data->designation;
-                })
                 ->addColumn('comment', function ($data) {
                     return @$data->comment;
+                })
+                ->addColumn('name_arabic', function ($data) {
+                    return @$data->name_arabic;
+                })
+                ->addColumn('comment->arabic', function ($data) {
+                    return @$data->comment->arabic;
                 })
                 ->addColumn('actions', function ($data) {
                     $actions = '';

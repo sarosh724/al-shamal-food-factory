@@ -11,8 +11,8 @@
                 </div>
                 <div class="col-md-4 order-1 order-md-2 align-self-center">
                     <ul class="breadcrumb d-block text-md-end">
-                        <li><a href="{{ route('index') }}">Home</a></li>
-                        <li class="active">APPOINTMENT</li>
+                        <li><a href="{{ route('index') }}">{{Str::title(__('home'))}}</a></li>
+                        <li class="active">{{Str::title(__('appointment'))}}</li>
                     </ul>
                 </div>
             </div>
@@ -30,28 +30,28 @@
                 <form class="custom-form-style-1" name="appointment-form" id="appointment-form" method="POST">
                     @csrf
                     <div class="contact-form-success alert alert-success d-none mt-4">
-                        <strong>Success!</strong> Your appointment has been sent to us.
+                        <strong>{{Str::title(__('success'))}}!</strong> {{Str::title(__('appointment_alert_success'))}}.
                     </div>
 
                     <div class="contact-form-error alert alert-danger d-none mt-4">
-                        <strong>Error!</strong> There was an error sending your appointment.
+                        <strong>{{Str::title(__('error'))}}!</strong> {{Str::title(__('appointment_alert_failed'))}}.
                         <span class="mail-error-message text-1 d-block"></span>
                     </div>
 
                     <div class="row">
                         <div class="col">
-                            <h2 class="text-color-dark font-weight-bold text-4-5 mb-3">Personal Information:</h2>
+                            <h2 class="text-color-dark font-weight-bold text-4-5 mb-3">{{Str::title(__('personal_information'))}}:</h2>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6 mb-3">
                             <input type="text" value="" data-msg-required="Please enter your first name."
-                                class="form-control" name="first_name" id="first_name" required placeholder="First Name">
+                                class="form-control" name="first_name" id="first_name" required placeholder="{{Str::title(__('first_name'))}}">
                         </div>
                         <div class="form-group col-md-6 mb-3">
                             <input type="text" value="" data-msg-required="Please enter your last name."
                                 maxlength="100" class="form-control" name="last_name" id="last_name" required
-                                placeholder="Last Name">
+                                placeholder="{{Str::title(__('last_name'))}}">
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -59,19 +59,18 @@
                             <input type="email" value="" data-msg-required="Please enter your email address."
                                 data-msg-email="Please enter a valid email address." maxlength="100"
                                 class="form-control" name="email" id="email" required
-                                placeholder="E-mail Address">
+                                placeholder="{{Str::title(__('email_address'))}}">
                         </div>
                         <div class="form-group col-md-6 mb-3">
                             <input type="number" min="0" value="" data-msg-required="Please enter your phone."
                                 maxlength="100" class="form-control" name="phone" id="phone" required
-                                placeholder="Phone">
+                                placeholder="{{Str::title(__('phone'))}}">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col">
-                            <h2 class="text-color-dark font-weight-bold text-4-5 mb-3">Tell Us Your Reason For
-                                Shceduling An Appointment:</h2>
+                            <h2 class="text-color-dark font-weight-bold text-4-5 mb-3">{{Str::title(__('tell_us_your_reason_for_shceduling_an_appointment'))}}:</h2>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -82,14 +81,14 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <h2 class="text-color-dark font-weight-bold text-4-5 mb-1">Choose Date and Time:</h2>
+                            <h2 class="text-color-dark font-weight-bold text-4-5 mb-1">{{Str::title(__('choose_date_and_time'))}}:</h2>
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-lg-6">
                             <div class="row">
                                 <div class="col">
-                                    <p class="font-weight-semibold mb-2">FIRST CHOICE</p>
+                                    <p class="font-weight-semibold mb-2">{{Str::upper(__('first_choice'))}}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -108,7 +107,7 @@
                         <div class="col-lg-6">
                             <div class="row">
                                 <div class="col">
-                                    <p class="font-weight-semibold mb-2">SECOND CHOICE</p>
+                                    <p class="font-weight-semibold mb-2">{{Str::upper(__('second_choice'))}}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -128,9 +127,7 @@
                     <div class="row pb-2 mb-4">
                         <div class="col">
                             <div class="alert alert-warning custom-alert-bg-color-1">
-                                <p class="text-2 mb-0"><i class="fas fa-info-circle me-1"></i> Please note that the
-                                    date and time you requested may not be available. We will contact you to confirm
-                                    your actual appointment details.</p>
+                                <p class="text-2 mb-0"><i class="fas fa-info-circle me-1"></i> {{Str::title(__('appointment_message'))}}</p>
                             </div>
                         </div>
                     </div>
@@ -139,7 +136,7 @@
                             <button type="submit"
                                 class="btn btn-primary text-color-light btn-modern font-weight-bold custom-btn-border-radius custom-btn-arrow-effect-1 text-3 px-5 py-3"
                                 data-loading-text="Loading...">
-                                SUBMIT
+                                {{Str::upper(__('submit'))}}
                                 <svg class="ms-2" version="1.1" viewBox="0 0 15.698 8.706" width="17"
                                     xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -177,7 +174,8 @@
                 },
                 phone: {
                     required: true,
-                    maxlength: 100
+                    minlength: 10,
+                    maxlength: 15
                 },
                 reason: {
                     required: true,

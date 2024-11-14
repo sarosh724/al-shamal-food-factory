@@ -10,8 +10,8 @@
     <div class="page-sidebar">
         <div class="logo">
             <a class="logo-img" href="{{route('admin.dashboard.dashboard')}}">
-                <img class="desktop-logo" src="{{ asset('assets/images/logo.png') }}" alt="">
-                <img class="small-logo" src="{{ asset('assets/images/small-logo.png') }}" alt="">
+                <img class="desktop-logo" src="{{asset("assets/front/img/demos/auto-services/al_shamal_food_logo.png")}}" alt="">
+                <img class="small-logo" src="{{asset("assets/front/img/demos/auto-services/al_shamal_food_logo.png")}}" alt="">
             </a>
             <i class="ion-ios-close-empty" id="sidebar-toggle-button-close"></i>
         </div>

@@ -14,12 +14,12 @@ class SettingSeeder extends Seeder
     public function run(): void
     {
         $settings = [
-            ['name' => 'Location', 'value' => 'New Industrial area, Zone 81, Street 15, Building 458', 'slug' => 'location'],
+            ['name' => 'Location', 'value' => 'New Industrial area, Zone 81, Street 15, Building 458', 'slug' => 'location', 'is_arabic_value' => 1],
             ['name' => 'Email', 'value' => 'info@alshamalfood.com', 'slug' => 'email'],
             ['name' => 'Contact 1', 'value' => '+974 44880400', 'slug' => 'contact-1'],
             ['name' => 'Contact 2', 'value' => '+974 44881400', 'slug' => 'contact-2'],
-            ['name' => 'Working Days', 'value' => 'Sat - Thu 8:00am - 5:00pm', 'slug' => 'working-days'],
-            ['name' => 'Closed Days', 'value' => 'Friday', 'slug' => 'closed-days'],
+            ['name' => 'Working Days', 'value' => 'Sat - Thu 8:00am - 5:00pm', 'slug' => 'working-days', 'is_arabic_value' => 1],
+            ['name' => 'Closed Days', 'value' => 'Friday', 'slug' => 'closed-days', 'is_arabic_value' => 1],
             ['name' => 'Map Iframe', 'value' => NULL, 'slug' => 'map-iframe'],
             ['name' => 'Map Link', 'value' => 'https://maps.app.goo.gl/imsAdbNR1Y6giH3W8', 'slug' => 'map-link'],
             ['name' => 'Years In Business', 'value' => '15', 'slug' => 'years-in-business'],

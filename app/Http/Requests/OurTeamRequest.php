@@ -24,6 +24,8 @@ class OurTeamRequest extends FormRequest
         return [
             'name' => 'required | max:255',
             'designation' => 'required | max:255',
+            'name_arabic' => 'required | max:255',
+            'designation_arabic' => 'required | max:255',
             'image' => 'file | nullable'
         ];
     }

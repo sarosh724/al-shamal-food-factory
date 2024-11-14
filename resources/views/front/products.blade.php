@@ -5,13 +5,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-                    <h1 class="text-dark"> <strong>Products</strong></h1>
+                    <h1 class="text-dark"> <strong>{{Str::title(__('products'))}}</strong></h1>
                     <span class="sub-title text-dark">{{ $productBreadcrumb->subtitle_english }}</span>
                 </div>
                 <div class="col-md-4 order-1 order-md-2 align-self-center">
                     <ul class="breadcrumb d-block text-md-end">
                         <li><a href="{{ route('index') }}">Home</a></li>
-                        <li class="active">PRODUCTS</li>
+                        <li class="active">{{Str::upper(__('products'))}}</li>
                     </ul>
                 </div>
             </div>
@@ -22,8 +22,8 @@
         <div class="row align-items-center justify-content-between mb-4">
             <div class="col-auto mb-3 mb-md-0 order-md-2">
                 <div class="d-flex align-items-center">
-                    <span>Showing {{ $products->firstItem() }} - {{ $products->lastItem() }} of
-                    {{ $products->total() }} products</span>
+                    <span>{{Str::title(__('showing'))}} {{ $products->firstItem() }} - {{ $products->lastItem() }} of
+                    {{ $products->total() }} {{__('products')}}</span>
 
                 </div>
             </div>
@@ -31,7 +31,7 @@
                 <form method="get" action="{{route('products')}}">
                     <div class="custom-select-1" style="max-width: 280px;">
                         <select name="service" class="form-select form-control border px-3 py-2 h-auto" onchange="this.form.submit()">
-                            <option value="all">Sort by Services</option>
+                            <option value="all">{{Str::title(__('sort_by_services'))}}</option>
                             @foreach(fetchServices() as $service)
                             <option value="{{$service->id}}" {{$serviceId == $service->id ? 'selected' : ''}}>{{Str::title($service->title_english)}}</option>
                             @endforeach
@@ -46,7 +46,7 @@
                     <div class="product mb-0">
                         <div class="product-thumb-info mb-3">
                             <a href="{{route('product-detail', ['id' => $product->id])}}" class="quick-view text-uppercase font-weight-semibold text-2" data-product-id="{{ $product->id }}">
-                                QUICK VIEW
+                                {{Str::upper(__('quick_view'))}}
                             </a>
                             <a href="javascript:void(0)">
                                 <div class="product-thumb-info-image bg-light">
@@ -149,15 +149,13 @@
                                 <i class="icons icon-phone text-6 text-color-light"></i>
                             </div>
                             <div class="feature-box-info line-height-2 ps-1">
-                                <span class="d-block text-1 font-weight-semibold text-color-light mb-1">CALL US
-                                    NOW</span>
-                                <strong class="text-4-5"><a href="tel:{{ getSetting('contact-1') }}"
-                                        class="text-color-light text-decoration-none">{{ getSetting('contact-1') }}</a></strong>
+                                <span class="d-block text-1 font-weight-semibold text-color-light mb-1">{{Str::upper(__('call_us_now'))}}</span>
+                                <strong class="text-4-5"><a href="tel:{{ getSetting('contact-1')->value }}"
+                                        class="text-color-light text-decoration-none">{{ getSetting('contact-1')->value }}</a></strong>
                             </div>
                         </div>
                         <a href="{{route('appointment')}}"
-                            class="btn btn-light btn-outline custom-btn-border-radius border-color-light font-weight-bold text-color-light text-color-hover-dark bg-color-hover-light btn-px-5 btn-py-3">MAKE
-                            AN APPOINTMENT</a>
+                            class="btn btn-light btn-outline custom-btn-border-radius border-color-light font-weight-bold text-color-light text-color-hover-dark bg-color-hover-light btn-px-5 btn-py-3">{{Str::upper(__('make_an_appointment'))}}</a>
                     </div>
                 </div>
             </div>

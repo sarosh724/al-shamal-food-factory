@@ -42,7 +42,7 @@
 
 @include('template.partials.menu-item', [
     'label' => 'Breadcrumbs',
-    'icon' => 'book',
+    'icon' => 'bold',
     'url' => route('admin.breadcrumbs.list'),
 ])
 

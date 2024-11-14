@@ -15,7 +15,6 @@ return new class extends Migration
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('designation');
             $table->text('comment');
             $table->timestamp('created_at')
                 ->default(DB::raw('CURRENT_TIMESTAMP'));

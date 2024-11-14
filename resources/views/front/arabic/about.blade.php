@@ -5,13 +5,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-                    <h1 class="text-dark"> <strong>About Us</strong></h1>
+                    <h1 class="text-dark"> <strong>{{__('about_us')}}</strong></h1>
                     <span class="sub-title text-dark">{{ $aboutBreadcrumb->subtitle_arabic }}</span>
                 </div>
                 <div class="col-md-4 order-1 order-md-2 align-self-center">
                     <ul class="breadcrumb d-block text-md-end">
-                        <li><a href="{{ route('index') }}">Home</a></li>
-                        <li class="active">About us</li>
+                        <li><a href="{{ route('index') }}">{{__('home')}}</a></li>
+                        <li class="active">{{__('about_us')}}</li>
                     </ul>
                 </div>
             </div>
@@ -21,8 +21,8 @@
         <div class="container textAlignRight ">
             <div class="row align-items-center justify-content-center pt-5">
                 <div class="col-lg-6 pb-sm-4 pb-lg-0 pe-lg-5 mb-sm-5 mb-lg-0 ">
-                    <h2 class="text-color-dark font-weight-normal text-6 mb-2">Who <strong
-                            class="font-weight-extra-bold">We Are</strong></h2>
+                    <h2 class="text-color-dark font-weight-normal text-6 mb-2">{{__('who')}} <strong
+                            class="font-weight-extra-bold">{{__('we_are')}}</strong></h2>
                     <p class="lead">{!! $whoWeAre->description_arabic !!}</p>
                 </div>
                 <div class="col-sm-8 col-md-6 col-lg-4 offset-sm-4 offset-md-4 offset-lg-2 position-relative mt-sm-5"
@@ -37,8 +37,6 @@
 
         <div class="row pt-5">
             <div class="col">
-
-
                 <div class="row mt-3 mb-5">
                     @if ($ourMission)
                     <div class="col-md-4 appear-animation" data-appear-animation="fadeInLeftShorter"
@@ -75,30 +73,30 @@
                 <div class="col-sm-6 col-lg-3 mb-5 mb-lg-0">
                     <div class="counter">
                         <i class="icons icon-user text-color-light"></i>
-                        <strong class="text-color-light font-weight-extra-bold" data-to="{{ getSetting('happy-clients') }}"
+                        <strong class="text-color-light font-weight-extra-bold" data-to="{{ getSetting('happy-clients')->value }}"
                             data-append="+">0</strong>
-                        <label class="text-4 mt-1 text-color-light">Happy Clients</label>
+                        <label class="text-4 mt-1 text-color-light">{{__('happy_clients')}}</label>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 mb-5 mb-lg-0">
                     <div class="counter">
                         <i class="icons icon-badge text-color-light"></i>
-                        <strong class="text-color-light font-weight-extra-bold" data-to="{{ getSetting('years-in-business') }}">0</strong>
-                        <label class="text-4 mt-1 text-color-light">Years In Business</label>
+                        <strong class="text-color-light font-weight-extra-bold" data-to="{{ getSetting('years-in-business')->value }}">0</strong>
+                        <label class="text-4 mt-1 text-color-light">{{__('years_in_business')}}</label>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 mb-5 mb-sm-0">
                     <div class="counter">
                         <i class="icons icon-graph text-color-light"></i>
                         <strong class="text-color-light font-weight-extra-bold" data-to="{{ count(fetchServices()) }}">0</strong>
-                        <label class="text-4 mt-1 text-color-light">Services</label>
+                        <label class="text-4 mt-1 text-color-light">{{__('services')}}</label>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="counter">
                         <i class="icons icon-cup text-color-light"></i>
                         <strong class="text-color-light font-weight-extra-bold" data-to="{{ count(fetchProducts()) }}">0</strong>
-                        <label class="text-4 mt-1 text-color-light">Products</label>
+                        <label class="text-4 mt-1 text-color-light">{{__('products')}}</label>
                     </div>
                 </div>
             </div>
@@ -115,15 +113,15 @@
                     @foreach ($teamMembers as $teamMember)
                     <div>
                         <img class="img-fluid rounded-0 mb-4" src="{{ $teamMember->image }}" alt="" />
-                        <h3 class="font-weight-bold text-color-dark text-4 mb-0 textAlignRight">{{ $teamMember->name }}</h3>
-                        <p class="text-2 mb-0 textAlignRight">{{ $teamMember->designation }}</p>
+                        <h3 class="font-weight-bold text-color-dark text-4 mb-0 textAlignRight">{{ $teamMember->name_arabic }}</h3>
+                        <p class="text-2 mb-0 textAlignRight">{{ $teamMember->designation_arabic }}</p>
                     </div>
                     @endforeach
                 </div>
             </div>
             <div class="col-md-6 order-1 order-md-2 text-center text-md-start mb-5 mb-md-0 textAlignRight">
-                <h2 class="text-color-dark font-weight-normal text-6 mb-2 pb-1 ">Meet <strong
-                        class="font-weight-extra-bold">Our Team</strong></h2>
+                <h2 class="text-color-dark font-weight-normal text-6 mb-2 pb-1 ">{{__('meet')}} <strong
+                        class="font-weight-extra-bold">{{__('our_team')}}</strong></h2>
                 <p class="lead">{!! $meetOurTeam->description_arabic !!}</p>
             </div>
         </div>
@@ -155,11 +153,11 @@
                                                 class="custom-testimonial-style-1 testimonial testimonial-style-2 testimonial-with-quotes testimonial-remove-right-quote text-center mb-0">
                                                 <blockquote>
                                                     <p class="text-color-dark text-3 font-weight-light px-0 mb-2">
-                                                        {{ $testimonial->comment }}</p>
+                                                        {{ $testimonial->comment_arabic }}</p>
                                                 </blockquote>
                                                 <div class="testimonial-author">
                                                     <p><strong
-                                                            class="font-weight-extra-bold">{{ $testimonial->name }}</strong>
+                                                            class="font-weight-extra-bold">{{ $testimonial->name_arabic }}</strong>
                                                     </p>
                                                 </div>
                                             </div>

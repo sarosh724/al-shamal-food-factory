@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="{{asset('assets/plugins/sweet-alert/sweetalert.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/plugins/datatables/jquery.dataTables.min.css')}}">
     <!-- Favicon -->
-    <link rel="icon" href="{{asset("assets/images/favicon.ico")}}" type="image/x-icon">
+    <link rel="icon" href="{{asset("assets/front/img/demos/auto-services/al_shamal_food_logo.png")}}" type="image/x-icon">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn"t work if you view the page via file:// -->
     <!--[if lt IE 9]>

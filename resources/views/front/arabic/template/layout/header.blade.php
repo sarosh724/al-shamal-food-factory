@@ -6,7 +6,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>Al Shamal Food Factory</title>
+		<title>{{__('al_shamal_food_factory')}}</title>
 
 		<meta name="keywords" content="Al Shamal Food Factory" />
 		<meta name="description" content="Al Shamal Food Factory">
@@ -79,8 +79,8 @@
 											<ul class="nav nav-pills position-relative">
 												<li class="nav-item d-none d-sm-block">
 													<span class="d-flex align-items-center font-weight-medium ws-nowrap text-3 ps-0">
-														<a href="mailto:{{getSetting('email')}}" class="text-decoration-none text-color-dark text-color-hover-primary">
-															{{getSetting('email')}}
+														<a href="mailto:{{getSetting('email')->value}}" class="text-decoration-none text-color-dark text-color-hover-primary">
+															{{getSetting('email')->value}}
 															<i class="icons icon-envelope font-weight-bold position-relative text-4 top-3 me-1 px-2"></i>
 														</a>
 													</span>
@@ -88,7 +88,7 @@
 												<li class="nav-item nav-item-right-border nav-item-left-border-remove nav-item-left-border-sm-show">
 													<span class="d-flex align-items-center font-weight-medium text-color-dark ws-nowrap text-3">
 														<i class="icons icon-clock font-weight-bold position-relative text-3 top-1 me-2  px-2"></i>
-														 {{getSetting('working-days')}}</span>
+														 {{getSetting('working-days')->value_arabic}}</span>
 													</span>
 												</li>
 											</ul>
@@ -100,10 +100,10 @@
 										<nav class="header-nav-top">
 											<ul class="header-social-icons social-icons social-icons-clean social-icons-icon-gray social-icons-medium custom-social-icons-divider">
 												<li class="social-icons-facebook">
-													<a href="{{getSetting('facebook-link')}}" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+													<a href="{{getSetting('facebook-link')->value}}" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
 												</li>
 												<li class="social-icons-linkedin">
-													<a href="{{getSetting('linkedin-link')}}" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a>
+													<a href="{{getSetting('linkedin-link')->value}}" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a>
 												</li>
 											</ul>
 										</nav>
@@ -125,18 +125,18 @@
 										<div class="header-nav-main header-nav-main-arrows header-nav-main-dropdown-no-borders header-nav-main-effect-3 header-nav-main-sub-effect-1">
 											<nav class="collapse">
 												<ul class="nav nav-pills" id="mainNav">
-													<li><a href="{{route('index')}}" class="nav-link {{is_active_menu(route('index'))}}">Home</a></li>
-													<li><a href="{{route('about')}}" class="nav-link {{is_active_menu(route('about'))}}">About</a></li>
+													<li><a href="{{route('index')}}" class="nav-link {{is_active_menu(route('index'))}}">{{__('home')}}</a></li>
+													<li><a href="{{route('about')}}" class="nav-link {{is_active_menu(route('about'))}}">{{__('about')}}</a></li>
 													<li class="dropdown">
-														<a href="{{route('services')}}" class="nav-link {{is_active_menu(route('services'))}} dropdown-toggle">Services</a>
+														<a href="{{route('services')}}" class="nav-link {{is_active_menu(route('services'))}} dropdown-toggle">{{__('services')}}</a>
 														<ul class="dropdown-menu">
                                                             @foreach(fetchServices() as $service)
 															<li><a href="{{route('service-details', ['slug' => $service->slug])}}" class="dropdown-item textAlignRight">{{ Str::title($service->title_arabic)}}</a></li>
                                                             @endforeach
 														</ul>
 													</li>
-													<li><a href="{{route('products')}}" class="nav-link {{is_active_menu(route('products'))}}">Products</a></li>
-													<li><a href="{{route('contact-us')}}" class="nav-link {{is_active_menu(route('contact-us'))}}">Contact</a></li>
+													<li><a href="{{route('products')}}" class="nav-link {{is_active_menu(route('products'))}}">{{__('products')}}</a></li>
+													<li><a href="{{route('contact-us')}}" class="nav-link {{is_active_menu(route('contact-us'))}}">{{__('contact')}}</a></li>
 												</ul>
 											</nav>
 										</div>
@@ -147,8 +147,8 @@
 												<i class="icons icon-phone text-3 text-color-dark position-relative top-3  pe-3 ps-3"></i>
 											</div>
 											<div class="header-extra-info-text line-height-2">
-												<span class="text-1 font-weight-semibold text-color-default">CALL US NOW</span>
-												<strong class="text-4" style="direction: ltr;"><a href="tel:{{ getSetting('contact-1') }}" class="text-color-hover-primary text-decoration-none">{{ getSetting('contact-1') }}</a></strong>
+												<span class="text-1 font-weight-semibold text-color-default">{{__('call_us_now')}}</span>
+												<strong class="text-4" style="direction: ltr;"><a href="tel:{{ getSetting('contact-1')->value }}" class="text-color-hover-primary text-decoration-none">{{ getSetting('contact-1')->value }}</a></strong>
 											</div>
 										</li>
 									</ul>

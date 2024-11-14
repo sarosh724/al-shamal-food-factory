@@ -52,17 +52,16 @@
                     <div class="d-flex align-items-start align-items-sm-center flex-column flex-sm-row">
                         <a href="{{ route('about') }}"
                             class="btn btn-primary text-color-light custom-btn-border-radius font-weight-bold text-3 px-5 btn-py-3 me-sm-2 mb-3 mb-sm-0 appear-animation"
-                            data-appear-animation="fadeInRightShorterPlus" data-appear-animation-delay="950">VIEW
-                            MORE</a>
+                            data-appear-animation="fadeInRightShorterPlus" data-appear-animation-delay="950">{{__('view_more')}}</a>
                         <div class="feature-box align-items-center border border-top-0 border-end-0 border-bottom-0 custom-remove-mobile-xs-border-left ms-sm-4 ps-sm-4 appear-animation"
                             data-appear-animation="fadeInRightShorterPlus" data-appear-animation-delay="1200">
                             <div class="feature-box-icon bg-transparent">
                                 <i class="icons icon-phone text-6 text-color-dark"></i>
                             </div>
                             <div class="feature-box-info line-height-2 ps-1">
-                                <span class="d-block text-1 font-weight-semibold text-color-default">CALL US NOW</span>
-                                <strong class="text-4-5"><a href="tel:{{ getSetting('contact-1') }}"
-                                        class="text-color-dark text-color-hover-primary text-decoration-none">{{ getSetting('contact-1') }}</a></strong>
+                                <span class="d-block text-1 font-weight-semibold text-color-default">{{__('call_us_now')}}</span>
+                                <strong class="text-4-5"><a href="tel:{{ getSetting('contact-1')->value }}"
+                                        class="text-color-dark text-color-hover-primary text-decoration-none">{{ getSetting('contact-1')->value }}</a></strong>
                             </div>
                         </div>
                     </div>
@@ -76,7 +75,7 @@
                         data-plugin-options="{'startPos': 'top', 'speed': 0.2, 'transition': true, 'transitionDuration': 1000, 'isInsideSVG': true}">
                         <img src="{{ $companyHistory->image }}" class="img-fluid" alt="" />
                     </div>
-                    <div class="position-absolute transform3dxy-n50" style="top: 25%; left: 7%;">
+                    {{-- <div class="position-absolute transform3dxy-n50" style="top: 25%; left: 7%;">
                         <div data-plugin-float-element
                             data-plugin-options="{'startPos': 'top', 'speed': 0.5, 'transition': true, 'transitionDuration': 2000, 'isInsideSVG': false}">
                             <img src="img/demos/auto-services/generic-1-1.png" class="appear-animation" alt=""
@@ -96,7 +95,7 @@
                             <img src="img/demos/auto-services/generic-1-3.png" class="appear-animation" alt=""
                                 data-appear-animation="fadeInDownShorterPlus" data-appear-animation-delay="2100" />
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 
@@ -104,27 +103,25 @@
         <div class="row align-items-center justify-content-center pb-4 mb-5">
             @if ($ourMission)
                 <div class="col-md-6 col-lg-6 text-center text-md-start">
-                    <div class="appear-animation" data-appear-animation="fadeInUpShorter"
+                    <div class="appear-animation textAlignRight" data-appear-animation="fadeInUpShorter"
                         data-appear-animation-delay="1000">
                         <h3 class="font-weight-bold text-color-dark text-transform-none text-5-5 mb-3">
                             {{ $ourMission->title_arabic }}</h3>
                         <p class="pb-1 mb-2">{!! $ourMission->description_arabic !!}</p>
                         <a href="{{ route('about') }}"
-                            class="btn btn-primary text-color-light custom-btn-border-radius font-weight-bold btn-px-5 py-3 mb-2">VIEW
-                            MORE</a>
+                            class="btn btn-primary text-color-light custom-btn-border-radius font-weight-bold btn-px-5 py-3 mb-2">{{__('view_more')}}</a>
                     </div>
                 </div>
             @endif
             @if ($anyQuestion)
                 <div class="col-md-6 col-lg-6 text-center text-md-start">
-                    <div class="appear-animation" data-appear-animation="fadeInUpShorter"
+                    <div class="appear-animation textAlignRight" data-appear-animation="fadeInUpShorter"
                         data-appear-animation-delay="1100">
                         <h3 class="font-weight-bold text-color-dark text-transform-none text-5-5 pt-2 mb-3">
                             {{ $anyQuestion->title_arabic }}</h3>
                         <p class="pb-1 mb-2">{!! $anyQuestion->description_arabic !!}</p>
                         <a href="{{ route('contact-us') }}"
-                            class="btn btn-primary text-color-light custom-btn-border-radius font-weight-bold btn-px-5 py-3">CONTACT
-                            US</a>
+                            class="btn btn-primary text-color-light custom-btn-border-radius font-weight-bold btn-px-5 py-3">{{__('contact_us')}}</a>
                     </div>
                 </div>
             @endif
@@ -136,7 +133,7 @@
             <div class="col-lg-9 col-xl-8 text-center">
                 <div class="overflow-hidden">
                     <h2 class="font-weight-bold text-color-dark line-height-1 mb-0 appear-animation"
-                        data-appear-animation="maskUp" data-appear-animation-delay="250">Services</h2>
+                        data-appear-animation="maskUp" data-appear-animation-delay="250">{{__('services')}}</h2>
                 </div>
                 <div class="d-inline-block custom-divider divider divider-primary divider-small my-3">
                     <hr class="my-0 appear-animation" data-appear-animation="customLineProgressAnim"
@@ -168,8 +165,7 @@
             <div class="col text-center">
                 <a href="{{ route('services') }}"
                     class="btn btn-primary text-color-light custom-btn-border-radius font-weight-bold text-3 btn-px-5 btn-py-3 appear-animation"
-                    data-appear-animation="fadeInUpShorterPlus" data-appear-animation-delay="850">VIEW ALL
-                    SERVICES</a>
+                    data-appear-animation="fadeInUpShorterPlus" data-appear-animation-delay="850">{{__('view_all_services')}}</a>
             </div>
         </div>
     </div>
@@ -199,11 +195,11 @@
                                                 class="custom-testimonial-style-1 testimonial testimonial-style-2 testimonial-with-quotes testimonial-remove-right-quote text-center mb-0">
                                                 <blockquote>
                                                     <p class="text-color-dark text-3 font-weight-light px-0 mb-2">
-                                                        {{ $testimonial->comment }}</p>
+                                                        {{ $testimonial->comment_arabic }}</p>
                                                 </blockquote>
                                                 <div class="testimonial-author">
                                                     <p><strong
-                                                            class="font-weight-extra-bold">{{ $testimonial->name }}</strong>
+                                                            class="font-weight-extra-bold">{{ $testimonial->name_arabic }}</strong>
                                                     </p>
                                                 </div>
                                             </div>
@@ -236,15 +232,12 @@
                                 <i class="icons icon-phone text-6 text-color-light"></i>
                             </div>
                             <div class="feature-box-info line-height-2 ps-1">
-                                <span class="d-block text-1 font-weight-semibold text-color-light mb-1">CALL US
-                                    NOW</span>
-                                <strong class="text-4-5 directionltr"><a href="tel:{{ getSetting('contact-1') }}"
-                                        class="text-color-light  ">{{ getSetting('contact-1') }}</a></strong>
+                                <span class="d-block text-1 font-weight-semibold text-color-light mb-1">{{__('call_us_now')}}</span>
+                                <strong class="text-4-5 directionltr"><a href="tel:{{ getSetting('contact-1')->value }}" class="text-color-light  ">{{ getSetting('contact-1')->value }}</a></strong>
                             </div>
                         </div>
                         <a href="{{ route('appointment') }}"
-                            class="btn btn-light btn-outline custom-btn-border-radius border-color-light font-weight-bold text-color-light text-color-hover-dark bg-color-hover-light btn-px-5 btn-py-3">MAKE
-                            AN APPOINTMENT</a>
+                            class="btn btn-light btn-outline custom-btn-border-radius border-color-light font-weight-bold text-color-light text-color-hover-dark bg-color-hover-light btn-px-5 btn-py-3">{{__('make_an_appointment')}}</a>
                     </div>
                 </div>
             </div>

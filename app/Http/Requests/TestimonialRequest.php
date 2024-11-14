@@ -23,8 +23,9 @@ class TestimonialRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'designation' => 'required',
-            'comment' => 'required'
+            'comment' => 'required',
+            'name_arabic' => 'required',
+            'comment_arabic' => 'required'
         ];
     }
 }

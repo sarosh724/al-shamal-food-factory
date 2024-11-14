@@ -37,6 +37,8 @@
                 'Sr.',
                 'Name',
                 'Designation',
+                'Name Arabic',
+                'Designation Arabic',
                 'Image',
                 'Status',
                 'Actions',
@@ -99,6 +101,14 @@
                     {
                         data: 'designation',
                         name: 'designation'
+                    },
+                    {
+                        data: 'name_arabic',
+                        name: 'name_arabic'
+                    },
+                    {
+                        data: 'designation_arabic',
+                        name: 'designation_arabic'
                     },
                     {
                         data: 'image',

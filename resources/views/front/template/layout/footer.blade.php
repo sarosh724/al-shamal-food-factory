@@ -8,8 +8,8 @@
 									<img width="45" src="{{asset("assets/front/img/demos/auto-services/icons/icon-location.svg")}}" alt="" data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-light position-relative bottom-3'}" />
 								</div>
 								<div class="feature-box-info line-height-1 ps-2">
-									<span class="d-block font-weight-bold text-color-light text-5 mb-2">Address</span>
-									<p class="text-color-light text-4 line-height-4 font-weight-light mb-0">{{getSetting('location')}}</p>
+									<span class="d-block font-weight-bold text-color-light text-5 mb-2">{{Str::title(__('address'))}}</span>
+									<p class="text-color-light text-4 line-height-4 font-weight-light mb-0">{{getSetting('location')->value}}</p>
 								</div>
 							</div>
 						</div>
@@ -19,10 +19,10 @@
 									<i class="icons icon-phone text-9 text-color-light position-relative top-4"></i>
 								</div>
 								<div class="feature-box-info line-height-1 ps-2">
-									<span class="d-block font-weight-bold text-color-light text-5 pb-1 mb-1">Call Us Now</span>
-									<a href="tel:{{getSetting('contact-1')}}" class="text-color-light text-4 line-height-7 text-decoration-none">{{getSetting('contact-1')}}</a>
+									<span class="d-block font-weight-bold text-color-light text-5 pb-1 mb-1">{{Str::title(__('call_us_now'))}}</span>
+									<a href="tel:{{getSetting('contact-1')->value}}" class="text-color-light text-4 line-height-7 text-decoration-none">{{getSetting('contact-1')->value}}</a>
 									<span class="text-color-light text-4 px-2">/</span>
-									<a href="tel:{{getSetting('contact-2')}}" class="text-color-light text-4 line-height-7 text-decoration-none">{{getSetting('contact-2')}}</a>
+									<a href="tel:{{getSetting('contact-2')->value}}" class="text-color-light text-4 line-height-7 text-decoration-none">{{getSetting('contact-2')->value}}</a>
 								</div>
 							</div>
 						</div>
@@ -33,8 +33,8 @@
 									<i class="icons icon-envelope text-9 text-color-light position-relative top-4"></i>
 								</div>
 								<div class="feature-box-info line-height-1 ps-xl-3">
-									<span class="d-block font-weight-bold text-color-light text-5 pb-1 mb-1">24/7 Assistance</span>
-									<a href="mailto:{{getSetting('email')}}" class="text-color-light text-4 line-height-7 text-decoration-none">{{getSetting('email')}}</a>
+									<span class="d-block font-weight-bold text-color-light text-5 pb-1 mb-1">24/7 {{Str::title(__('assistance'))}}</span>
+									<a href="mailto:{{getSetting('email')->value}}" class="text-color-light text-4 line-height-7 text-decoration-none">{{getSetting('email')->value}}</a>
 								</div>
 							</div>
 						</div>
@@ -49,36 +49,36 @@
 							</a>
 						</div>
 						<div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-							<h5 class="text-transform-none font-weight-bold text-color-light text-4-5 mb-4">About Us</h5>
+							<h5 class="text-transform-none font-weight-bold text-color-light text-4-5 mb-4">{{Str::title(__('about_us'))}}</h5>
 							<ul class="list list-unstyled">
 								<li class="pb-1 mb-2">
-									<span class="d-block font-weight-semibold line-height-1 text-color-grey text-3-5">ADDRESS</span>
-									<a href="{{getSetting('map-link')}}" target="_blank" class="text-color-light custom-text-underline-1 font-weight-medium text-3-5">GET DIRECTIONS</a>
+									<span class="d-block font-weight-semibold line-height-1 text-color-grey text-3-5">{{Str::upper(__('address'))}}</span>
+									<a href="{{getSetting('map-link')->value}}" target="_blank" class="text-color-light custom-text-underline-1 font-weight-medium text-3-5">{{Str::upper(__('get_directions'))}}</a>
 								</li>
 								<li class="pb-1 mb-2">
-									<span class="d-block font-weight-semibold line-height-1 text-color-grey text-3-5 mb-1">PHONE</span>
+									<span class="d-block font-weight-semibold line-height-1 text-color-grey text-3-5 mb-1">{{Str::upper(__('phone'))}}</span>
 									<ul class="list list-unstyled font-weight-light text-3-5 mb-0">
 										<li class="text-color-light line-height-3 mb-0">
-											Sales: <a href="tel:{{getSetting('contact-1')}}" class="text-decoration-none text-color-light text-color-hover-default">{{getSetting('contact-1')}}</a>
+											{{Str::title(__('sales'))}}: <a href="tel:{{getSetting('contact-1')->value}}" class="text-decoration-none text-color-light text-color-hover-default">{{getSetting('contact-1')->value}}</a>
 										</li>
 									</ul>
 								</li>
 								<li class="pb-1 mb-2">
-									<span class="d-block font-weight-semibold line-height-1 text-color-grey text-3-5">EMAIL</span>
-									<a href="mailto:{{getSetting('email')}}" class="text-decoration-none font-weight-light text-3-5 text-color-light text-color-hover-default">{{getSetting('email')}}</a>
+									<span class="d-block font-weight-semibold line-height-1 text-color-grey text-3-5">{{Str::upper(__('email'))}}</span>
+									<a href="mailto:{{getSetting('email')->value}}" class="text-decoration-none font-weight-light text-3-5 text-color-light text-color-hover-default">{{getSetting('email')->value}}</a>
 								</li>
 							</ul>
 							<ul class="social-icons social-icons-medium">
 								<li class="social-icons-instagram">
-									<a href="{{getSetting('instagram-link')}}" class="no-footer-css" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+									<a href="{{getSetting('instagram-link')->value}}" class="no-footer-css" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
 								</li>
 								<li class="social-icons-facebook">
-									<a href="{{getSetting('facebook-link')}}" class="no-footer-css" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+									<a href="{{getSetting('facebook-link')->value}}" class="no-footer-css" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
 								</li>
 							</ul>
 						</div>
 						<div class="col-md-6 col-lg-2 mb-5 mb-md-0">
-							<h5 class="text-transform-none font-weight-bold text-color-light text-4-5 mb-4">Services</h5>
+							<h5 class="text-transform-none font-weight-bold text-color-light text-4-5 mb-4">{{Str::title(__('services'))}}</h5>
 							<ul class="list list-unstyled mb-0">
                                 @foreach(fetchServices() as $service)
 								<li class="mb-0"><a href="{{route('service-details', ['slug' => $service->slug])}}">{{ Str::title($service->title_english)}}</a></li>
@@ -86,10 +86,10 @@
 							</ul>
 						</div>
 						<div class="col-md-6 col-lg-3 offset-lg-1">
-							<h5 class="text-transform-none font-weight-bold text-color-light text-4-5 mb-4">Opening Hours</h5>
+							<h5 class="text-transform-none font-weight-bold text-color-light text-4-5 mb-4">{{Str::title(__('opening_hours'))}}</h5>
 							<ul class="list list-unstyled list-inline custom-list-style-1 mb-0">
-								<li>{{getSetting('working-days')}}</li>
-								<li>{{getSetting('closed-days')}}: Closed</li>
+								<li>{{getSetting('working-days')->value}}</li>
+								<li>{{getSetting('closed-days')->value}}: {{Str::title(__('closed'))}}</li>
 							</ul>
 						</div>
 					</div>
@@ -98,8 +98,8 @@
 					<div class="container py-2">
 						<div class="row">
 							<div class="col">
-								<p class="text-center text-3 mb-0">© Copyright <a href="{{route('index')}}">Al Shamal Food Factory</a>. All Rights Reserved,
-                                Powered by <a href="https://www.technologylab.qa/" target="__blank">Technology Lab</a>
+								<p class="text-center text-3 mb-0">© {{Str::title(__('copyright'))}} <a href="{{route('index')}}">{{Str::title(__('al_shamal_food_factory'))}}</a>. {{Str::title(__('all_rights_reserved'))}},
+                                {{Str::title(__('powered_by'))}} <a href="https://www.technologylab.qa/" target="__blank">{{Str::title(__('technology_lab'))}}</a>
                                 </p>
 							</div>
 						</div>

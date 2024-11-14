@@ -15,22 +15,32 @@
         </div>
         <div class="col-lg-12">
             @include('template.partials.form.input', [
-                'label' => 'Designation',
-                'name' => 'designation',
-                'type' => 'text',
-                'required' => true,
-                'placeholder' => 'Designation',
-                'value' => @$testimonial->designation,
-            ])
-        </div>
-        <div class="col-lg-12">
-            @include('template.partials.form.input', [
                 'label' => 'Comment',
                 'name' => 'comment',
                 'required' => true,
                 'type' => 'text',
                 'placeholder' => 'Comment',
                 'value' => @$testimonial->comment,
+            ])
+        </div>
+        <div class="col-lg-12">
+            @include('template.partials.form.input', [
+                'label' => 'Name Arabic',
+                'name' => 'name_arabic',
+                'type' => 'text',
+                'required' => true,
+                'placeholder' => 'Name Arabic',
+                'value' => @$testimonial->name_arabic,
+            ])
+        </div>
+        <div class="col-lg-12">
+            @include('template.partials.form.input', [
+                'label' => 'Comment Arabic',
+                'name' => 'comment_arabic',
+                'required' => true,
+                'type' => 'text',
+                'placeholder' => 'Comment Arabic',
+                'value' => @$testimonial->comment_arabic,
             ])
         </div>
         <div class="col-lg-12 text-right mt-3">
@@ -47,10 +57,13 @@
                 name: {
                     required: true
                 },
-                designation: {
+                comment: {
                     required: true
                 },
-                comment: {
+                name_arabic: {
+                    required: true
+                },
+                comment_arabic: {
                     required: true
                 }
             },
