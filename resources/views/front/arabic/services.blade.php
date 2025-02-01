@@ -25,7 +25,9 @@
 								<div class="row">
 									<div class="col">
 										<a href="{{route('service-details', ['slug' => $service->slug])}}" class="text-decoration-none">
+                                            @if(@$service->images[0]->path)
 											<img src="{{ @$service->images[0]->path }}" class="img-fluid hover-effect-2 mb-3" alt="" />
+                                            @endif
 										</a>
 									</div>
 								</div>

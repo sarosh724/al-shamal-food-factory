@@ -185,7 +185,7 @@ class SiteController extends Controller
         return $this->jsonResponse($result["type"], $result["message"]);
     }
 
-    public function changeLocale(Request $request, $locale)
+    public function changeLocale($locale)
     {
         if (in_array($locale, ['en', 'ar'])) {
             session(['locale' => $locale]);

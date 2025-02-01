@@ -152,7 +152,9 @@
                         <div
                             class="custom-thumb-info-style-1 thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-lighten">
                             <div class="thumb-info-wrapper">
-                                <img src="{{ @$service->images[0]->path }}" class="img-fluid" alt="">
+                                @if(@$service->images[0]->path)
+                                <img src="{{ @$service->images[0]->path }}" class="img-fluid" alt="service image">
+                                @if(@$service->images[0]->path)
                             </div>
                             <h3 class="text-transform-none font-weight-bold text-5 mt-2 mb-0">
                                 {{ $service->title_arabic }}</h3>

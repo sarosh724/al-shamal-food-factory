@@ -54,6 +54,8 @@ Route::namespace('App\Http\Controllers\Backend')->prefix('admin')->group(functio
                 Route::get('/', 'CustomerInquiryController@index')->name('list');
                 Route::post('/store', 'CustomerInquiryController@store')->name('store');
                 Route::delete('/{id}', 'CustomerInquiryController@destroy')->name('delete');
+                Route::get('/comment-modal/{id?}', 'CustomerInquiryController@commentModal')->name('comment-modal');
+                Route::post('/store-comment', 'CustomerInquiryController@storeComment')->name('store-comment');
             });
 
         // Services
@@ -144,7 +146,8 @@ Route::namespace('App\Http\Controllers\Backend')->prefix('admin')->group(functio
             ->group(function () {
                 Route::get('/', 'AppointmentController@index')->name('list');
                 Route::delete('{id}', 'AppointmentController@destroy')->name('delete');
-                Route::post('/update-status', 'AppointmentController@updateStatus')->name('update-status');
+                Route::get('/comment-modal/{id?}', 'AppointmentController@commentModal')->name('comment-modal');
+                Route::post('/store-comment', 'AppointmentController@storeComment')->name('store-comment');
             });
 
         // Breadcrumb

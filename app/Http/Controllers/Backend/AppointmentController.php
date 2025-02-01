@@ -54,34 +54,39 @@ class AppointmentController extends Controller
                 ->addColumn('second_choice_time', function ($data) {
                     return @$data->second_choice_time;
                 })
-                // ->addColumn('actions', function ($data) {
-                //     $actions = '';
+                ->addColumn('actions', function ($data) {
+                    $actions = '';
 
-                //     // $actions = '<a href="javascript:void(0);" data-id="' . @$data->id . '"
-                //     // class="btn btn-sm btn-edit me-1" ><i class="fa fa-pencil color-gray"></i></a>';
+                    $actions = '<a href="javascript:void(0);" data-id="' . @$data->id . '"
+                    class="btn btn-primary btn-sm btn-comment me-1" ><i class="fa fa-pencil mr-1 color-gray"></i>Comment</a>';
 
-                //     // $actions .= '<a href="javascript:void(0);" data-id="' . @$data->id . '"
-                //     // class="btn btn-sm btn-delete" ><i class="fa fa-trash color-gray"></i></a>';
-
-                //     return $actions;
-                // })
-                // ->rawColumns(['actions'])
+                    return $actions;
+                })
+                ->rawColumns(['actions'])
                 ->make(true);
         }
 
         return view("admin.appointments.listing");
     }
 
-    // public function store(AppointmentRequest $request, $id = null)
-    // {
-    //     $result = $this->appointmentInterface->store($request, $id);
+    public function commentModal(Request $request)
+    {
+        $title = "Add Comment";
+        $appointment = $this->appointmentInterface->list($request->id)->first();
 
-    //     return $this->jsonResponse($result["type"], $result["message"]);
-    // }
+        return $this->formModal($title, "admin.appointments.comment-form", ["appointment" => $appointment]);
+    }
+
+    public function storeComment(Request $request)
+    {
+        $result = $this->appointmentInterface->storeComment($request);
+
+        return $this->jsonResponse($result["type"], $result["message"]);
+    }
 
     public function destroy($id)
     {
-        $appointment = $this->appointmentInterface->list($id)->first();
+        $appointment = $this->appointmentInterface->list()->first();
 
         if (!$appointment) {
             return $this->jsonResponse("error", "Record not found");

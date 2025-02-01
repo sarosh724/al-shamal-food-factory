@@ -10,7 +10,7 @@
     <meta name="author"  content=""/>
     <meta name="csrf-token" content="{{csrf_token()}}">
     <!-- Page Title -->
-    <title>@yield('page-title') | Star Trading Services</title>
+    <title>@yield('page-title') | Al Shamal Food Factory</title>
     <!-- Main CSS -->
     <link type="text/css" rel="stylesheet" href="{{asset("assets/plugins/bootstrap/css/bootstrap.min.css")}}"/>
     <link type="text/css" rel="stylesheet" href="{{asset("assets/plugins/font-awesome/css/font-awesome.min.css")}}"/>
@@ -20,7 +20,7 @@
     <link type="text/css" rel="stylesheet" href="{{asset("assets/css/style.min.css")}}"/>
     <link type="text/css" rel="stylesheet" href="{{asset("assets/css/custom.css")}}"/>
     <!-- Favicon -->
-    <link rel="icon" href="{{asset("assets/images/favicon.ico")}}" type="image/x-icon">
+    <link rel="icon" href="{{asset("assets/front/img/demos/auto-services/al_shamal_food_logo.png")}}" type="image/x-icon">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn"t work if you view the page via file:// -->
     <!--[if lt IE 9]>

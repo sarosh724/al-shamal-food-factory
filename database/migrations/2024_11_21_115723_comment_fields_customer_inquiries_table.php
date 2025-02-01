@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('settings', function (Blueprint $table) {
-            $table->text('value_arabic')->nullable()->after('value');
-            $table->boolean('is_arabic_value')->default(0)->nullable()->after('slug');
+        Schema::table('customer_inquiries', function (Blueprint $table) {
+            $table->text('comment')->nullable()->after('message');
         });
     }
 
@@ -22,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('settings', function (Blueprint $table) {
+        Schema::table('customer_inquiries', function (Blueprint $table) {
             //
         });
     }

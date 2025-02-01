@@ -63,7 +63,7 @@
 				<div class="container">
 					<div class="row justify-content-center py-2">
 						<div class="col-9 col-md-12 text-center">
-							<p class="text-color-light mb-0">{!!fetchPage('announcement-bar')->description_english!!}</p>
+							<p class="text-color-light mb-0">{!!strip_tags(fetchPage('announcement-bar')->description_english)!!}</p>
 						</div>
 					</div>
 				</div>

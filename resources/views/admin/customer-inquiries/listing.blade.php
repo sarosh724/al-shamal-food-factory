@@ -10,7 +10,10 @@
 
 @section('content')
     <div class="table-responsive">
-        @include('template.partials.table',  ['id' => 'data-table', 'columns' => ['Sr.', 'Name', 'Email', 'Phone Number', 'Message']])
+        @include('template.partials.table', [
+            'id' => 'data-table',
+            'columns' => ['Sr.', 'Name', 'Email', 'Phone Number', 'Message', 'Actions'],
+        ])
     </div>
 @stop
 
@@ -31,20 +34,19 @@
                     orderable: true
                 }],
                 ajax: {
-                    url: "{{route('admin.customer-inquiries.list')}}",
+                    url: "{{ route('admin.customer-inquiries.list') }}",
                     error: function(xhr, error, thrown) {
                         if (xhr.status === 401) {
                             toast("The session has been expired", "error");
-                            setTimeout(function () {
-                                window.location.href = "{{route('login')}}";
+                            setTimeout(function() {
+                                window.location.href = "{{ route('login') }}";
                             }, 3000);
                         }
                     }
                 },
-                columns: [
-                    {
+                columns: [{
                         data: 'DT_RowIndex',
-                         name: 'DT_RowIndex'
+                        name: 'DT_RowIndex'
                     },
                     {
                         data: 'name',
@@ -61,8 +63,18 @@
                     {
                         data: 'message',
                         name: 'message',
+                    },
+                    {
+                        data: 'actions',
+                        name: 'actions'
                     }
                 ]
+            });
+
+            $("#data-table").on('click', '.btn-comment', function() {
+                let id = $(this).data('id');
+                let url = "{{ route('admin.customer-inquiries.comment-modal', '') }}?id=" + id;
+                open_modal(url);
             });
         });
     </script>

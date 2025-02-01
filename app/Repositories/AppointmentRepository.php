@@ -14,7 +14,7 @@ class AppointmentRepository implements AppointmentInterface
 {
     public function list($id = null)
     {
-        if (isset($id)) Appointment::where("id", $id)->get();
+        if (isset($id)) $data = Appointment::where("id", $id)->get();
 
         else $data = Appointment::all();
 
@@ -40,6 +40,7 @@ class AppointmentRepository implements AppointmentInterface
             DB::commit();
             $result["type"] = "success";
             $result["message"] = "Thanks for contacting us, We will respond soon!";
+            sendEmail($request->email, 'Appointment', ['userName' => $request->first_name . ' ' . $request->last_name, 'appointmentDate' => $request->first_date, 'appointmentNumber' => 'AP' . str_pad($appointment->id, 3, '0', STR_PAD_LEFT)], 'appointment');
         } catch (Exception $exception) {
             DB::rollBack();
             $result["message"] = "Something went wrong, please contact your system administrator";
@@ -58,6 +59,26 @@ class AppointmentRepository implements AppointmentInterface
             DB::commit();
             $result["type"] = "success";
             $result["message"] = "Appointment Deleted";
+        } catch (Exception $exception) {
+            DB::rollBack();
+            $result["message"] = "Something went wrong, please contact your system administrator";
+            Log::debug($exception->getMessage());
+        }
+
+        return $result;
+    }
+
+    public function storeComment(Request $request)
+    {
+        $result["type"] = "error";
+        try {
+            DB::beginTransaction();
+            $appointment = Appointment::find($request->appointment_id);
+            $appointment->comment = $request->comment;
+            $appointment->save();
+            DB::commit();
+            $result["type"] = "success";
+            $result["message"] = "Comment is updated";
         } catch (Exception $exception) {
             DB::rollBack();
             $result["message"] = "Something went wrong, please contact your system administrator";

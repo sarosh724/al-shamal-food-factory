@@ -22,7 +22,9 @@
     <div class="container my-5 pt-4 pb-5">
         <div class="row">
             <div class="col-lg-8 order-lg-2 mb-5 mb-lg-0 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="500">
-                <img src="{{@$service->images[0]->path}}" class="img-fluid hover-effect-2 mb-3" alt="" />
+                @if(@$service->images[0]->path)
+                <img src="{{url(@$service->images[0]->path)}}" class="img-fluid hover-effect-2 mb-3" alt="" />
+                @endif
                 <p class="text-3-5">{!!$service->detail_english!!}</p>
             </div>
             <div class="col-lg-4 order-lg-1 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="250">

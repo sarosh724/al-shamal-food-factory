@@ -4,10 +4,11 @@ use App\Models\Page;
 use App\Models\Product;
 use App\Models\Service;
 use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 
-function send_email($to, $subject, $data, $blade)
+function sendEmail($to, $subject, $data, $blade)
 {
     $sent = true;
     try {
@@ -16,11 +17,11 @@ function send_email($to, $subject, $data, $blade)
                 ->subject($subject);
             $message->from(
                 config('mail.from.address', 'sarosh.development111@gmail.com'),
-                config('mail.from.name', 'Star Trading Service')
+                config('mail.from.name', 'Al Shamal Food Factory')
             );
         });
     } catch (\Exception $e) {
-        \Illuminate\Support\Facades\Log::debug("Error sending email: " . $e->getMessage());
+        \Illuminate\Support\Facades\Log::debug("Error sending email: " . $e->getMessage() . $e->getFile() . $e->getLine());
         $sent = false;
     }
 
@@ -196,9 +197,14 @@ function dropdownUrlList()
     return [route('dropdown4'), route('dropdown2'), route('dropdown3'), route('dropdown1')];
 }
 
-function getLoggedUserID()
+function getLoggedUserIDz()
 {
     return auth()->user()->id;
+}
+
+function getAdmin()
+{
+    return User::first();
 }
 
 

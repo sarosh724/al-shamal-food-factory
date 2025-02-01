@@ -14,7 +14,7 @@ class CustomerInquiryRepository implements CustomerInquiryInterface
 {
     public function list($id = null)
     {
-        if (isset($id)) CustomerInquiry::where("id", $id)->get();
+        if (isset($id)) $data = CustomerInquiry::where("id", $id)->get();
 
         else $data = CustomerInquiry::all();
 
@@ -33,6 +33,8 @@ class CustomerInquiryRepository implements CustomerInquiryInterface
             $customerInquiry->message = $request->message;
             $customerInquiry->save();
             DB::commit();
+            sendEmail($request->email, 'Customer Inquiry', ['userName' => $request->name], 'customer-inquiry');
+            sendEmail(getAdmin()->email, 'New Customer Inquiry', ['name' => $customerInquiry->name, 'email' => $customerInquiry->email, 'phone' => $customerInquiry->phone_number, 'msg' => $customerInquiry->message], 'customer-inquiry-admin');
             $result["type"] = "success";
             $result["message"] = "Thanks for contacting us, We will respond soon!";
         } catch (Exception $exception) {
@@ -53,6 +55,26 @@ class CustomerInquiryRepository implements CustomerInquiryInterface
             DB::commit();
             $result["type"] = "success";
             $result["message"] = "Customer inquiry Deleted";
+        } catch (Exception $exception) {
+            DB::rollBack();
+            $result["message"] = "Something went wrong, please contact your system administrator";
+            Log::debug($exception->getMessage());
+        }
+
+        return $result;
+    }
+
+    public function storeComment(Request $request)
+    {
+        $result["type"] = "error";
+        try {
+            DB::beginTransaction();
+            $customerInquiry = CustomerInquiry::find($request->customer_inquiry_id);
+            $customerInquiry->comment = $request->comment;
+            $customerInquiry->save();
+            DB::commit();
+            $result["type"] = "success";
+            $result["message"] = "Comment is updated";
         } catch (Exception $exception) {
             DB::rollBack();
             $result["message"] = "Something went wrong, please contact your system administrator";

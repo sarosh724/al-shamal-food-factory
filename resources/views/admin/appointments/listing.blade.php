@@ -10,7 +10,7 @@
 
 @section('content')
     <div class="table-responsive">
-        @include('template.partials.table',  ['id' => 'data-table', 'columns' => ['Sr.', 'First Name', 'Last Name', 'Email', 'Phone', 'Reason', 'First Choice Date', 'First Choice Time', 'Second Choice Date', 'Second Choice Time']])
+        @include('template.partials.table',  ['id' => 'data-table', 'columns' => ['Sr.', 'First Name', 'Last Name', 'Email', 'Phone', 'Reason', 'First Choice Date', 'First Choice Time', 'Second Choice Date', 'Second Choice Time', 'Actions']])
     </div>
 @stop
 
@@ -81,9 +81,21 @@
                     {
                         data: 'second_choice_time',
                         name: 'second_choice_time',
+                    },
+                    {
+                        data: 'actions',
+                        name: 'actions'
                     }
                 ]
             });
+
+            $("#data-table").on('click', '.btn-comment', function() {
+            let id = $(this).data('id');
+            let url = "{{ route('admin.appointment.comment-modal', '') }}?id=" + id;
+            open_modal(url);
         });
+        });
+
+
     </script>
 @stop
