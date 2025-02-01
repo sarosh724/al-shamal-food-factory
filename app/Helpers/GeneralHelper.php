@@ -197,7 +197,7 @@ function dropdownUrlList()
     return [route('dropdown4'), route('dropdown2'), route('dropdown3'), route('dropdown1')];
 }
 
-function getLoggedUserIDz()
+function getLoggedUserID()
 {
     return auth()->user()->id;
 }
